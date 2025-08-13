@@ -60,11 +60,12 @@ body {
 
 /* First section */
 .profile-section {
-  margin-top: 3.1rem !important;
+  margin-top: 2.5rem !important;
   position: relative;
   overflow: hidden;
 }
 .hero-img {
+  display: block;
   max-width: 96%;
   height: auto;
   transition: all 0.3s ease;
@@ -356,7 +357,7 @@ body {
 }
 
 .fun-btn {
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   color: white;
   border: 3px solid transparent;
   padding: 10px 20px;
