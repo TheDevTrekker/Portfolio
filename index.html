@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Derik Korf</title>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+      <link rel="stylesheet" href="./Css/style.css">
+  </head>
+
+  <body>
+    <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+      <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M12,19 C8.13400675,19 5,15.8659932 5,12 C5,8.13400675 8.13400675,5 12,5 C15.8659932,5 19,8.13400675 19,12 C19,15.8659932 15.8659932,19 12,19 Z M12,17 C14.7614237,17 17,14.7614237 17,12 C17,9.23857625 14.7614237,7 12,7 C9.23857625,7 7,9.23857625 7,12 C7,14.7614237 9.23857625,17 12,17 Z M11,1.99895656 C11,1.44724809 11.4438648,1 12,1 C12.5522847,1 13,1.44266033 13,1.99895656 L13,3.00104344 C13,3.55275191 12.5561352,4 12,4 C11.4477153,4 11,3.55733967 11,3.00104344 L11,1.99895656 Z M18.3646989,4.22108758 C18.7548157,3.83097078 19.3849276,3.82857845 19.7781746,4.22182541 C20.1686989,4.6123497 20.1722733,5.24194031 19.7789124,5.63530115 L19.07033,6.34388357 C18.6802132,6.73400038 18.0501012,6.73639271 17.6568542,6.34314575 C17.26633,5.95262146 17.2627556,5.32303085 17.6561164,4.92967001 L18.3646989,4.22108758 Z M22.0010434,11 C22.5527519,11 23,11.4438648 23,12 C23,12.5522847 22.5573397,13 22.0010434,13 L20.9989566,13 C20.4472481,13 20,12.5561352 20,12 C20,11.4477153 20.4426603,11 20.9989566,11 L22.0010434,11 Z M19.7789124,18.3646989 C20.1690292,18.7548157 20.1714215,19.3849276 19.7781746,19.7781746 C19.3876503,20.1686989 18.7580597,20.1722733 18.3646989,19.7789124 L17.6561164,19.07033 C17.2659996,18.6802132 17.2636073,18.0501012 17.6568542,17.6568542 C18.0473785,17.26633 18.6769692,17.2627556 19.07033,17.6561164 L19.7789124,18.3646989 Z M13,22.0010434 C13,22.5527519 12.5561352,23 12,23 C11.4477153,23 11,22.5573397 11,22.0010434 L11,20.9989566 C11,20.4472481 11.4438648,20 12,20 C12.5522847,20 13,20.4426603 13,20.9989566 L13,22.0010434 Z M5.63530115,19.7789124 C5.24518434,20.1690292 4.61507236,20.1714215 4.22182541,19.7781746 C3.83130112,19.3876503 3.82772675,18.7580597 4.22108758,18.3646989 L4.92967001,17.6561164 C5.31978681,17.2659996 5.9498988,17.2636073 6.34314575,17.6568542 C6.73367004,18.0473785 6.73724441,18.6769692 6.34388357,19.07033 L5.63530115,19.7789124 Z M1.99895656,13 C1.44724809,13 1,12.5561352 1,12 C1,11.4477153 1.44266033,11 1.99895656,11 L3.00104344,11 C3.55275191,11 4,11.4438648 4,12 C4,12.5522847 3.55733967,13 3.00104344,13 L1.99895656,13 Z M4.22108758,5.63530115 C3.83097078,5.24518434 3.82857845,4.61507236 4.22182541,4.22182541 C4.6123497,3.83130112 5.24194031,3.82772675 5.63530115,4.22108758 L6.34388357,4.92967001 C6.73400038,5.31978681 6.73639271,5.9498988 6.34314575,6.34314575 C5.95262146,6.73367004 5.32303085,6.73724441 4.92967001,6.34388357 L4.22108758,5.63530115 Z" id="Combined-Shape"></path>
+      </svg>
+    </button>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container-fluid justify-content-center">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <div class="navbar-nav-bg px-3 py-2 rounded-pill">
+            <ul class="navbar-nav animate__animated animate__fadeInDown">
+              <li class="nav-item">
+                <a class="nav-link underline--magical" href="#home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link underline--magical" href="#projects">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link underline--magical" href="#about">Info</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HOME -->
+    <section id="home" class="profile-section d-flex align-items-center">
+      <div class="background-half"></div>
+      <div class="container content-wrapper">
+        <div class="row align-items-center">
+          <div class="col-md-6 profile-text text-md-start text-center">
+            <h1 class="fw-bold">Hey, I'm <span style="color: var(--primary-color);">Derik Korf</span></h1>
+            <p class="fw-bold">Please feel free to connect, explore my work, or just say hi.</p>
+          </div>
+          <div id="picToggle" class="col-md-6 text-center img-highlight">
+            <img id="picIcon" src="./assets/images/derik.color.png" alt="Profile Image" class="hero-img">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOCUS -->
+    <section id="focus" class="py-5">
+      <div class="container px-4 py-5" id="custom-cards">
+        <h2 class="pb-2 text-center fw-bold display-4 text-color">My <span class="typewriter"></span></h2>
+        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+          <!-- 1-->
+          <div class="col-12 col-md-4 col-lg-4">
+            <div class="card card-cover h-100 overflow-hidden rounded-4 color-focus1">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h3 class="pt-5 mt-5 mb-4 display-5 lh-1 fw-bold">User-first Thinking</h3>
+                <p class="mb-4">I design with empathy — always optimizing for real people, not just devices.</p>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto" style="width: 42px; height: 42px; background: var(--background-color); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <svg fill="var(--text-color)" width="32" height="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M16.0000028,10.0274647 C18.2499767,10.2761881 20,12.1837241 20,14.5 L20,23.5 C20,23.7761424 19.7761424,24 19.5,24 C19.2238576,24 19,23.7761424 19,23.5 L19,14.5 C19,12.7367649 17.6961483,11.2780607 16.0000025,11.0354448 L16.0000004,17.0000001 C16.0000001,18.1045697 15.1045695,19 14,19 C13.1070639,19 12.3181616,18.7603614 11.6483895,18.2805904 C11.3936762,18.0981342 11.0882218,18.0000201 10.7744978,18.00002 C10.5173225,18 10.3107499,18.1488891 10.2371708,18.3696264 C10.1262259,18.7024611 10.1927988,19.0267989 10.3989304,19.258697 L13.8737047,23.1678181 C14.0571637,23.3742095 14.0385733,23.6902457 13.8321819,23.8737047 C13.6257905,24.0571637 13.3097543,24.0385733 13.1262953,23.8321819 L10.5999236,20.9900137 C10.5676363,20.9965624 10.5342196,21 10.5,21 L6.5,21 C5.11928813,21 4,19.8807119 4,18.5 L4,2.49996197 C4,1.11925009 5.11928813,-3.80312054e-05 6.49999996,-3.80312054e-05 L13.5000061,-3.8628686e-05 C14.880718,-3.82162116e-05 16.0000058,1.11925024 16.0000054,2.49996214 L16.0000028,10.0274647 Z M9.65152107,19.9230609 C9.20775136,19.4238199 9.06443026,18.7255704 9.27565835,18.0918861 C9.49818066,17.4243192 10.0868921,17 10.7504045,17.0000002 C11.2971043,17.0000201 11.8061976,17.1635445 12.230722,17.4676397 C12.7259511,17.822382 13.3106783,18 14,18 C14.5522849,18 15.0000003,17.5522847 15.0000004,16.9999998 L15.0000054,2.49996182 C15.0000056,1.67153469 14.328433,0.999961619 13.500006,0.999961371 L6.5,0.999961969 C5.67157288,0.999961969 5,1.67153484 5,2.49996197 L5,18.5 C5,19.3284271 5.67157288,20 6.5,20 L9.71991141,20 L9.65152107,19.9230609 Z M8.5,3 C8.22385763,3 8,2.77614237 8,2.5 C8,2.22385763 8.22385763,2 8.5,2 L11.5,2 C11.7761424,2 12,2.22385763 12,2.5 C12,2.77614237 11.7761424,3 11.5,3 L8.5,3 Z M11.5,7 C12.9580333,7 14,7.86830559 14,9.5 C14,11.0594566 12.7212668,12.520866 10.2480695,13.9341216 C10.0943531,14.0219595 9.90564687,14.0219595 9.75193053,13.9341216 C7.2787332,12.520866 6,11.0594566 6,9.5 C6,7.86830559 7.04196671,7 8.5,7 C9.10077204,7 9.60746163,7.21606838 10,7.62749064 C10.3925384,7.21606838 10.899228,7 11.5,7 Z M13,9.5 C13,8.46502774 12.4419667,8 11.5,8 C11.0297465,8 10.6986523,8.22072947 10.4472136,8.7236068 C10.2629515,9.09213107 9.73704854,9.09213107 9.5527864,8.7236068 C9.30134774,8.22072947 8.97025354,8 8.5,8 C7.55803329,8 7,8.46502774 7,9.5 C7,10.5646205 7.97502869,11.7198904 10,12.9214551 C12.0249713,11.7198904 13,10.5646205 13,9.5 Z"/>
+                    </svg>  
+                  </li>
+                  <li class="d-flex align-items-center me-3"><small>UX-first</small></li>
+                  <li class="d-flex align-items-center"><small>Always</small></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- 2 -->
+          <div class="col-12 col-md-4 col-lg-4">
+            <div class="card card-cover h-100 overflow-hidden rounded-4 color-focus2">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h3 class="pt-5 mt-5 mb-4 display-5 lh-1 fw-bold">Built to grow, not just go</h3>
+                <p class="mb-4">Designing apps that grow effortlessly — handling traffic spikes and evolving.</p>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto" style="width: 42px; height: 42px; background: var(--background-color); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <svg fill="var(--text-color)" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" height="30" width="30" viewBox="0 0 512 512"><path fill-rule="nonzero" d="m243.9 135.59-138.42 46.1 150.83 68.41 150.83-66.48-112.62-38.59v-20.84l142.87 48.93c4.39 1.78 7.05 5.76 6.66 10.19.03.21.03.46.03.7v180.47l32.6 18.81-6.37-19.21c-3.6-11.24 20.69-21.6 25.6-3.91l15.55 45.94c2.04 7.73-1.79 14.56-9.49 16.76l-47.9 9.78c-15.66 4.04-24.15-19.22-6.77-25.34l17.54-3.14-116.42-67.2c-5.73-3.32-7.7-10.66-4.39-16.4 3.31-5.74 10.66-7.7 16.39-4.39l63.87 36.87V197.61l-158.17 69.7v198.7l133.22-67.71 20.38 11.76-158.36 80.47a9.928 9.928 0 0 1-10.47-.15L94.48 408.79l20.21-11.66 131.67 68.69v-198.6L87.64 195.26v157.82l63.94-36.9c5.73-3.31 13.08-1.35 16.39 4.39 3.31 5.74 1.34 13.08-4.39 16.4l-116.42 67.2 17.54 3.14c17.38 6.12 8.89 29.38-6.77 25.34l-47.9-9.78c-7.7-2.2-11.53-9.03-9.49-16.76l15.55-45.94c4.91-17.69 29.2-7.33 25.6 3.91l-6.37 19.21 32.6-18.81-.03-184.06c0-5.38 3.67-7.8 8.48-9.79l167.53-55.77-.01-69.04-13.46 15.12c-7.93 8.73-29.05-7.12-16.18-20.22l32.03-36.43c5.67-5.64 13.5-5.73 19.25-.16l32.41 36.59c11.33 11.54-4.56 30.52-18.55 18.53L267.9 45.64l.01 134.42c-.01 6.62-5.38 11.99-12.01 12-6.63 0-12-5.38-12-12v-44.47z"/></svg>
+                  </li>
+                  <li class="d-flex align-items-center me-3"><small>Future-proof</small></li>
+                  <li class="d-flex align-items-center"><small>Scalability</small></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- 3 -->
+          <div class="col-12 col-md-4 col-lg-4">
+            <div class="card card-cover h-100 overflow-hidden rounded-4 color-focus3">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h3 class="pt-5 mt-5 mb-4 display-5 lh-1 fw-bold">Fast & Responsive</h3>
+                <p class="mb-4">From mobile to desktop, I optimize for speed, responsiveness, and reliability.</p>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto" style="width: 42px; height: 42px; background: var(--background-color); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <svg fill="var(--text-color)" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 396.494 396.494"xml:space="preserve"><g>
+	                    <path d="M304.42,330.901h-43.219c-1.56,0-2.834-1.273-2.834-2.834v-10.52c0-1.559-1.275-2.834-2.834-2.834h-60.475c-1.56,0-2.835,1.275-2.835,2.834v10.52c0,1.561-1.275,2.834-2.835,2.834h-32.491c-1.56,0-2.835,1.275-2.835,2.834v12.17c0,1.559,1.275,2.834,2.835,2.834h147.521c1.559,0,2.834-1.275,2.834-2.834v-12.17C307.254,332.179,305.979,330.901,304.42,330.901z"/><g>
+	                    <path d="M377.032,46.368h-308.4c-10.73,0-19.459,8.73-19.459,19.462c0,0,0,37.109,0,50.761c0,6.711-0.498,7.66,4.004,7.66c2.391,0,5.039,0,7.72,0c3.778,0,3.003-0.949,3.003-7.785c0-13.621,0-50.636,0-50.636c0-2.565,2.168-4.733,4.732-4.733h308.4c2.563,0,4.731,2.168,4.731,4.733v189.999h-219.87c0,0-7.749-0.014-7.749,10.006c0,5.941,0,17.823,0,23.766c0,10.006,8,10.006,8,10.006h214.888c10.729,0,19.461-8.729,19.461-19.459V65.83C396.493,55.099,387.763,46.368,377.032,46.368zM222.833,282.804c-4.845,0-8.771-3.926-8.771-8.768s3.926-8.77,8.771-8.77c4.84,0,8.767,3.928,8.767,8.77S227.673,282.804,222.833,282.804z"/>
+	                    <path d="M124.125,141.633H12.559C5.632,141.633,0,147.266,0,154.193v183.372c0,6.926,5.632,12.561,12.559,12.561h111.566c6.923,0,12.559-5.635,12.559-12.561V154.193C136.684,147.266,131.048,141.633,124.125,141.633z M54.58,154.443h27.523c1.313,0,2.38,1.064,2.38,2.381c0,1.314-1.066,2.379-2.38,2.379H54.58c-1.315,0-2.379-1.065-2.379-2.379C52.201,155.507,53.265,154.443,54.58,154.443z M68.175,341.304c-3.59,0-6.5-2.91-6.5-6.5s2.91-6.5,6.5-6.5s6.5,2.91,6.5,6.5S71.765,341.304,68.175,341.304z M125.893,322.2c0,1.676-1.342,3.047-2.98,3.047H13.774c-1.639,0-2.98-1.371-2.98-3.047V169.825c0-1.676,1.342-3.046,2.98-3.046h109.139c1.639,0,2.98,1.371,2.98,3.046V322.2z"/></g></g>
+                    </svg>
+                  </li>
+                  <li class="d-flex align-items-center me-3"><small>All Devices</small></li>
+                  <li class="d-flex align-items-center"><small>Every Time</small></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-5 projects-section">
+      <div class="container mb-5">
+        <h1 class="text-center fw-bold mb-5 display-4 mt-5">My Projects</h1>
+        <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="col-lg-6">
+            <div class="card h-100 border-0 shadow project" onclick="window.open('https://contract-monthly-claim-system.onrender.com', '_blank')">
+              <img src="./assets/projects/cmcs.png" class="card-img-top" alt="Contract Monthly Claim System">
+              <div class="card-body">
+                <h3 class="fw-bold">Contract Monthly Claim System</h3>
+                <p class="card-text">Manage and track your claims with faster approvals.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="col-lg-6">
+            <div class="card h-100 border-0 shadow project" onclick="window.open('https://agri-energy-connect.onrender.com', '_blank')">
+              <img src="./assets/projects/agri-energy.png" class="card-img-top" alt="Agri-Energy Connect">
+              <div class="card-body">
+                <h3 class="fw-bold">Agri-Energy Connect</h3>
+                <p class="card-text">Helping farmers and employers manage products securely.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="col-lg-6">
+            <div class="card h-100 border-0 shadow project" onclick="showErrorPopup(this)" data-github="https://github.com/VCPTA/bca2-cldv6212-poe-submission-ST10268524.git">
+              <img id="abcImage" src="./assets/projects/abc-retail.png" class="card-img-top" alt="ABC retail">
+              <div class="card-body">
+                <h3 class="fw-bold">ABC Retail</h3>
+                <p class="card-text">Your one stop for any outdoor need.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="col-lg-6">
+            <div class="card h-100 border-0 shadow project" onclick="showErrorPopup(this)" data-github="https://github.com/VCPTA/bca3-prog7313-portfolio-of-evidence-poe-ST10268524.git">
+              <img id="budgetImage" src="./assets/projects/budget-piggy/welcome+home.png" class="card-img-top" alt="Budget piggy">
+              <div class="card-body">
+                <h3 class="fw-bold">Budget Piggy</h3>
+                <p class="card-text">Financial tracking made fun, interactive and engaging.</p>
+              </div>
+            </div>
+          </div>
+            <!-- Error Popup Modal -->
+            <div id="errorModal" class="modal" style="margin-top: 0 !important;" onclick="closeErrorPopup(event)">
+              <div class="modal-content align-items-center text-color">
+                <span class="close-btn" onclick="closeErrorPopup(event)">&times;</span>
+                <img src="./assets/images/oops.png" alt="Oops Icon"  style="width: 180px; margin-bottom: 20px;">
+                <h2>Sorry!</h2>
+                <p>This applications resources have been stopped. Please check back later.</p>
+                <p>
+                  You can view the project on
+                  <a href="#" target="_blank" rel="noopener noreferrer" id="githubLink" style="color:var(--primary-color); text-decoration: none;">
+                    <i class="fab fa-github icon"></i> GitHub here
+                  </a>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- About me -->
+    <section id="about" class="about-section py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Profile Image -->
+          <div class="col-md-5 text-center mb-4 mb-md-0">
+            <h1 class="display-4 fw-bold text-center mb-5 text-color">About Me</h1>
+            <img src="./assets/images/hike.jpg" alt="Derik Korf" class="img-fluid rounded-4 about-img" style="max-width: 450px;">
+          </div>
+          <!-- About Content -->
+          <div class="col-md-7">
+            <div class="p-4 rounded-4 shadow-sm" style="background-color: var(--background-color); color: var(--text-color);">
+              <h3 class="fw-bold mb-3">Hi, I'm a computer science student</h3>
+              <p class="mb-3">
+                I’m a <strong>motivated and results-driven Software & Web Developer</strong> with a solid foundation in application development, cloud computing, and database management.
+                Over 2 years of hands-on experience with <strong>Python, Java, C#, HTML, CSS, and JavaScript</strong>.
+                I’m passionate about building impactful solutions, learning continuously, and collaborating in agile teams.
+              </p>
+              <p class="mb-3">
+                Currently pursuing my <strong>Bachelor of Computer and Information Sciences in Application Development</strong> at IIE’s Varsity College,
+                and proud to be a <strong>Golden Key International Honor Society Nominee</strong>.
+              </p>
+              <p class="mb-4">
+                My recent role at <strong>CropIntelek</strong> involved managing and verifying large agricultural datasets, ensuring data integrity for analytics and reporting.
+              </p>
+              <!-- Skills -->
+            <div class="mb-4">
+              <h5 class="fw-bold">Skills & Tools</h5>
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                <span class="badge bg-primary">Java</span>
+                <span class="badge bg-primary">JavaScript</span>
+                <span class="badge bg-primary">Python</span>
+                <span class="badge bg-primary">HTML5</span>
+                <span class="badge bg-primary">CSS3</span>
+                <span class="badge bg-primary">Bootstrap</span>
+                <span class="badge bg-primary">MongoDB</span>
+                <span class="badge bg-primary">Azure</span>
+                <span class="badge bg-primary">.NET</span>
+                <span class="badge bg-primary">SQL Server</span>
+                <span class="badge bg-primary">Kotlin</span>
+                <span class="badge bg-primary">Firebase</span>
+              </div>
+            </div>
+
+              <!-- Interests -->
+              <div>
+                <h5 class="fw-bold">Beyond the Screen</h5>
+                <p>
+                  When I’m not coding, you’ll find me <strong>hiking, reading, drawing, fishing, camping</strong>, or working on my fitness.
+                </p>
+                <button class="fun-btn btn btn-outline-primary btn-sm px-3" onclick="window.open('assets/Derik.Korf.CV.pdf', '_blank')">
+                  <i class="fas fa-file-pdf me-1"></i> View Resume
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Me -->
+    <section id="contact-me" class="contact-section py-5">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <!-- Left -->
+          <div class="col-lg-6">
+            <div class="p-4 rounded-4" style="background-color: var(--secondary-color);">
+              <form action="https://formspree.io/f/mldlzydw" method="POST">
+                <div class="mb-3">
+                  <label for="name" class="form-label fw-bold">Name</label>
+                  <input type="text" class="form-control rounded-2 shadow-sm" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label fw-bold">Email</label>
+                  <input type="email" class="form-control rounded-2 shadow-sm" id="email" name="_replyto" placeholder="Your Email" required>
+                </div>
+                <div class="mb-4">
+                  <label for="message" class="form-label fw-bold">Message</label>
+                  <textarea class="form-control shadow-sm" id="message" name="message" rows="5" placeholder="Write your message..."></textarea>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="fun-btn btn-primary px-4 py-2 shadow-sm">
+                    <i class="fas fa-paper-plane me-2"></i> Send
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- Right -->
+          <div class="col-lg-6 text-lg-start text-center">
+            <h1 class="display-4 fw-bold  mb-3">Let’s Connect</h1>
+            <p class="lead mb-4">
+              Have a question, an idea, or a project in mind?  
+              I’m always open to discussing new opportunities, creative ideas, or potential collaborations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer py-4">
+      <div class="container footer-content d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <!-- Left section -->
+        <div class="footer-left text-center text-md-start mb-3 mb-md-0">
+          <div class="contact-info mb-3">
+            <p class="mb-1">
+              <i class="fas fa-phone me-2"></i>
+              <a href="tel:+27825278801" style="text-decoration:none;color: var(--text-color);">082 527 8801</a>
+            </p>
+            <p class="mb-1">
+              <i class="fas fa-map-marker-alt me-2"></i>
+              Pretoria, South Africa
+            </p>
+          </div>
+          <button class="fun-btn btn btn-outline-primary btn-sm px-3" onclick="window.open('assets/Derik.Korf.CV.pdf', '_blank')">
+            <i class="fas fa-file-pdf me-1"></i> View Resume
+          </button>
+        </div>
+        <!-- Right section -->
+        <div class="footer-right text-center text-md-end">
+          <ul class="list-inline mb-2">
+            <li class="list-inline-item">
+              <a href="https://github.com/TheDevTrekker" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github icon"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.linkedin.com/in/derik-korf/" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin-in icon"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.facebook.com/derik.debull/" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-facebook-f icon"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=derikkorf10@gmail.com" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-google icon"></i>
+              </a>
+            </li>
+          </ul>
+          <p class="mb-0 small" style="color: var(--text-color);">&copy; 2025 Derik Korf. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      window.addEventListener('scroll', function () {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 10) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+      // Button toggle
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+      const moonPath = "M21.64 13.19A9 9 0 1110.81 2.36 7 7 0 0021.64 13.19z";
+      const sunPath = "M12,19 C8.13400675,19 5,15.8659932 5,12 C5,8.13400675 8.13400675,5 12,5 C15.8659932,5 19,8.13400675 19,12 C19,15.8659932 15.8659932,19 12,19 Z M12,17 C14.7614237,17 17,14.7614237 17,12 C17,9.23857625 14.7614237,7 12,7 C9.23857625,7 7,9.23857625 7,12 C7,14.7614237 9.23857625,17 12,17 Z M11,1.99895656 C11,1.44724809 11.4438648,1 12,1 C12.5522847,1 13,1.44266033 13,1.99895656 L13,3.00104344 C13,3.55275191 12.5561352,4 12,4 C11.4477153,4 11,3.55733967 11,3.00104344 L11,1.99895656 Z M18.3646989,4.22108758 C18.7548157,3.83097078 19.3849276,3.82857845 19.7781746,4.22182541 C20.1686989,4.6123497 20.1722733,5.24194031 19.7789124,5.63530115 L19.07033,6.34388357 C18.6802132,6.73400038 18.0501012,6.73639271 17.6568542,6.34314575 C17.26633,5.95262146 17.2627556,5.32303085 17.6561164,4.92967001 L18.3646989,4.22108758 Z M22.0010434,11 C22.5527519,11 23,11.4438648 23,12 C23,12.5522847 22.5573397,13 22.0010434,13 L20.9989566,13 C20.4472481,13 20,12.5561352 20,12 C20,11.4477153 20.4426603,11 20.9989566,11 L22.0010434,11 Z M19.7789124,18.3646989 C20.1690292,18.7548157 20.1714215,19.3849276 19.7781746,19.7781746 C19.3876503,20.1686989 18.7580597,20.1722733 18.3646989,19.7789124 L17.6561164,19.07033 C17.2659996,18.6802132 17.2636073,18.0501012 17.6568542,17.6568542 C18.0473785,17.26633 18.6769692,17.2627556 19.07033,17.6561164 L19.7789124,18.3646989 Z M13,22.0010434 C13,22.5527519 12.5561352,23 12,23 C11.4477153,23 11,22.5573397 11,22.0010434 L11,20.9989566 C11,20.4472481 11.4438648,20 12,20 C12.5522847,20 13,20.4426603 13,20.9989566 L13,22.0010434 Z M5.63530115,19.7789124 C5.24518434,20.1690292 4.61507236,20.1714215 4.22182541,19.7781746 C3.83130112,19.3876503 3.82772675,18.7580597 4.22108758,18.3646989 L4.92967001,17.6561164 C5.31978681,17.2659996 5.9498988,17.2636073 6.34314575,17.6568542 C6.73367004,18.0473785 6.73724441,18.6769692 6.34388357,19.07033 L5.63530115,19.7789124 Z M1.99895656,13 C1.44724809,13 1,12.5561352 1,12 C1,11.4477153 1.44266033,11 1.99895656,11 L3.00104344,11 C3.55275191,11 4,11.4438648 4,12 C4,12.5522847 3.55733967,13 3.00104344,13 L1.99895656,13 Z M4.22108758,5.63530115 C3.83097078,5.24518434 3.82857845,4.61507236 4.22182541,4.22182541 C4.6123497,3.83130112 5.24194031,3.82772675 5.63530115,4.22108758 L6.34388357,4.92967001 C6.73400038,5.31978681 6.73639271,5.9498988 6.34314575,6.34314575 C5.95262146,6.73367004 5.32303085,6.73724441 4.92967001,6.34388357 L4.22108758,5.63530115 Z";
+      // Picture toggle
+      const picIcon = document.getElementById('picIcon');
+      const darkPic = "./assets/images/derik.bw.png";
+      const lightPic = "./assets/images/derik.color.png";
+
+      themeToggle.addEventListener('click', () => {
+        const body = document.body;
+        const isDark = body.classList.toggle('dark-theme');
+
+        // Toggle icon
+        themeIcon.innerHTML = `<path d="${isDark ? moonPath : sunPath}"/>`;
+        // Change profile pic
+        picIcon.src = isDark ? darkPic : lightPic;
+      });
+
+      // Image switching
+      let abcImages = [
+        "./assets/projects/abc/abc-retail.png",
+        "./assets/projects/abc/abc-products.png",
+        "./assets/projects/abc/abc-shop.png",
+        "./assets/projects/abc/abc-order.png",
+      ];
+      let budgetImages =[
+        "./assets/projects/budget-piggy/welcome+home.png",
+        "./assets/projects/budget-piggy/transaction+report.png"
+      ]
+      let abcIndex = 0;
+      let budgetIndex = 0;
+      setInterval(() => {
+        abcIndex = (abcIndex + 1) % abcImages.length;
+        budgetIndex = (budgetIndex + 1) % budgetImages.length;
+        document.getElementById("abcImage").src = abcImages[abcIndex];
+        document.getElementById("budgetImage").src = budgetImages[budgetIndex];
+      }, 4000); // Switch every 2 seconds
+
+      // Show popup
+      function showErrorPopup(cardElement) {
+        const githubURL = cardElement.getAttribute("data-github") || "#";
+        // Set the href of the GitHub link in the modal
+        const githubLink = document.getElementById("githubLink");
+        githubLink.href = githubURL;
+
+        document.getElementById("errorModal").style.display = "block";
+      }
+      // Close popup
+      function closeErrorPopup(event) {
+        if (event.target.classList.contains("modal") || event.target.classList.contains("close-btn")) {
+          document.getElementById("errorModal").style.display = "none";
+        }
+      }
+
+      const form = document.querySelector("#contact-me form");
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          alert("✅ Thank you! Your message has been sent.");
+          form.reset();
+        } else {
+          alert("❌ Oops! Something went wrong. Please try again.");
+        }
+      });
+    </script>
+  </body>
+</html>
