@@ -273,13 +273,14 @@ body {
 
 /* About me */
 .badge { background-color: var(--primary-color) !important; }
-.about-img { border: 5px solid transparent; }
+.about-img { border: 5px solid transparent; max-width: 100%;}
 .about-img:hover {
   border-top-color: var(--fun1) !important;
   border-bottom-color: var(--fun1) !important;
   border-left-color: var(--fun3) !important;
   border-right-color: var(--fun3) !important;
 }
+
 
 /* Contact me */
 .contact-section {
