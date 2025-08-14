@@ -102,11 +102,6 @@ body {
   font-size: 1.25rem;
   margin-top: 3rem;
 }
-@media (max-width: 768px) {
-  .profile-section {
-    margin-top: 12rem !important;
-  }
-}
 
 /* Focus points */
 .card.card-cover {
@@ -207,22 +202,6 @@ body {
 .color-focus3 {
   background-color: var(--fun3);
   background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 0, rgba(255, 255, 255, 0.2) 10px, transparent 10px, transparent 20px);
-}
-
-/* Responsive cards */
-@media (max-width: 1200px) {
-  #custom-cards h3 { font-size: 1.7rem !important; }
-  #custom-cards p, #custom-cards small { font-size: 0.85rem !important; }
-  #custom-cards .card > div { padding: 1rem 1rem 0.5rem !important; }
-}
-@media (max-width: 992px) {
-  #custom-cards h3 { font-size: 1.8rem !important; }
-}
-@media (max-width: 576px) {
-  #custom-cards { transform: scale(0.9); }
-  #custom-cards h1 { font-size: 1.5rem !important; }
-  #custom-cards h3 { font-size: 1rem !important; }
-  #custom-cards p, #custom-cards small { font-size: 0.75rem !important; }
 }
 
 /* Projects */
@@ -395,4 +374,20 @@ body {
 .theme-toggle-btn:hover {
   background-color: var(--text-color);
   color: var(--primary-color);
+}
+
+/* Responsiveness */
+@media (max-width: 1200px) {
+  #custom-cards h3 { font-size: 1.7rem !important; }
+  #custom-cards p, #custom-cards small { font-size: 0.85rem !important; }
+  #custom-cards .card > div { padding: 1rem 1rem 0.5rem !important; }
+}
+@media (max-width: 992px) {#custom-cards h3 { font-size: 1.8rem !important; }}
+@media (max-width: 768px) {.profile-section {margin-top: 12rem !important;}}
+@media (max-width: 576px) {
+  #custom-cards { transform: scale(0.9); }
+  #custom-cards h1 { font-size: 1.5rem !important; }
+  #custom-cards h3 { font-size: 1rem !important; }
+  #custom-cards p, #custom-cards small { font-size: 0.75rem !important; }
+  .footer-right ul li a {width: 40px;height: 40px;font-size: 20px;}
 }
