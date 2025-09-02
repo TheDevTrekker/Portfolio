@@ -128,61 +128,133 @@
         <div class="row g-4">
           <!-- Card 1 -->
           <div class="col-lg-6">
-            <div class="card h-100 border-0 shadow project" onclick="window.open('https://contract-monthly-claim-system.onrender.com', '_blank')">
-              <img src="./assets/projects/cmcs.png" class="card-img-top" alt="Contract Monthly Claim System">
+            <div class="card h-100 border-0 shadow project" onclick="showProjectShowcase('kanban', 'Kanban Task Manager', 
+            'A modern Kanban-based task management system built with pure HTML, JavaScript, and Firestore. Designed for an accounting company, it offers real-time collaboration, statistical insights, and an intuitive, vibrant UI for seamless workflow management.',
+             'https://thedevtrekker.github.io/Kanban-Task-Manager/',
+            ['Task creation with statuses and due dates', 'Member management', 'Role assignments', 'User authentication', 'Real-time updates powered by Firestore', 'Statistical insights with charts'],
+            './assets/projects/kanban/video.mp4' ,'./assets/projects/kanban/home.png')">
+              <img src="./assets/projects/kanban/home.png" class="card-img-top" alt="Kanban Task Manager">
               <div class="card-body">
-                <h3 class="fw-bold">Contract Monthly Claim System</h3>
-                <p class="card-text">Manage and track your claims with faster approvals.</p>
+                <h3 class="fw-bold">Kanban Task Manager</h3>
+                <p class="card-text">Manage your tasks efficiently with a Kanban board.</p>
               </div>
             </div>
           </div>
           <!-- Card 2 -->
           <div class="col-lg-6">
-            <div class="card h-100 border-0 shadow project" onclick="window.open('https://agri-energy-connect.onrender.com', '_blank')">
-              <img src="./assets/projects/agri-energy.png" class="card-img-top" alt="Agri-Energy Connect">
-              <div class="card-body">
-                <h3 class="fw-bold">Agri-Energy Connect</h3>
-                <p class="card-text">Helping farmers and employers manage products securely.</p>
-              </div>
-            </div>
-          </div>
-          <!-- Card 3 -->
-          <div class="col-lg-6">
-            <div class="card h-100 border-0 shadow project" onclick="showErrorPopup(this)" data-github="https://github.com/VCPTA/bca2-cldv6212-poe-submission-ST10268524.git">
-              <img id="abcImage" src="./assets/projects/abc-retail.png" class="card-img-top" alt="ABC retail">
-              <div class="card-body">
-                <h3 class="fw-bold">ABC Retail</h3>
-                <p class="card-text">Your one stop for any outdoor need.</p>
-              </div>
-            </div>
-          </div>
-          <!-- Card 4 -->
-          <div class="col-lg-6">
-            <div class="card h-100 border-0 shadow project" onclick="showErrorPopup(this)" data-github="https://github.com/VCPTA/bca3-prog7313-portfolio-of-evidence-poe-ST10268524.git">
-              <img id="budgetImage" src="./assets/projects/budget-piggy/welcome+home.png" class="card-img-top" alt="Budget piggy">
+            <div class="card h-100 border-0 shadow project" onclick="showProjectShowcase('budget-piggy', 'Budget Piggy', 'A mobile expense tracking application developed in Android Studio using Kotlin and Firebase. Budget Piggy provides secure authentication, intuitive money management, and engaging visuals, making financial planning simple and effective.', 
+              null,['Secure login and account management','Log expenses and track budgets in real time','Transfer funds between accounts','Upload and manage receipts digitally','Statistical reports and visual dashboards','Push notifications for reminders and updates'],
+              './assets/projects/budget-piggy/video.mp4' , './assets/projects/budget-piggy/welcome+home.png')">
+              <img src="./assets/projects/budget-piggy/welcome+home.png" class="card-img-top" alt="Budget piggy">
               <div class="card-body">
                 <h3 class="fw-bold">Budget Piggy</h3>
                 <p class="card-text">Financial tracking made fun, interactive and engaging.</p>
               </div>
             </div>
           </div>
-            <!-- Error Popup Modal -->
+          <!-- Card 3 -->
+          <div class="col-lg-6">
+          <div class="card h-100 border-0 shadow project" 
+              onclick="showProjectShowcase(
+                'client-manager','Client Manager','A business registry dashboard built with HTML, CSS, and JavaScript. The Client Manager allows users to manage companies, individuals, and directors in a clean, interactive interface. This demo version uses LocalStorage for persistence, making it ideal for portfolio showcasing and quick deployments without a backend.',
+                'http://127.0.0.1:3000/ClientManager-Portfolio/index.html',['Add, edit, and remove companies and individuals','Link directors to multiple companies','Store tax numbers, addresses, and contact details','Search and filter across records','Real-time updates powered by Firestore','Scalable for big companies, businesses, and individuals'],
+                './assets/projects/client-manager/video.mp4',
+                './assets/projects/client-manager/home.png'
+              )">
+            <img src="./assets/projects/client-manager/home.png" class="card-img-top" alt="Client Manager">
+            <div class="card-body">
+              <h3 class="fw-bold">Client Manager Demo</h3>
+              <p class="card-text">A portfolio-ready demo for managing companies, individuals, and directors.</p>
+            </div>
+          </div>
+        </div>
+
+          <!-- Card 4 -->
+          <div class="col-lg-6">
+            <div class="card h-100 border-0 shadow project" onclick="showProjectShowcase('cmcs', 'Contract Monthly Claim System', 
+            'An enterprise-grade claim management solution built with C# on Visual Studio and Microsoft SQL Server. CMCS streamlines the academic claims process with role-based access, multi-level approvals, and fast reporting for lecturers, coordinators, and managers.', 'https://contract-monthly-claim-system.onrender.com',
+            ['Secure login with role-based permissions','Lecturer claim submissions with document support','Coordinator and academic manager approval workflows','Real-time status tracking and notifications','Comprehensive reports with export and print options','Clean, responsive, and efficient interface'],
+            './assets/projects/cmcs/video.mp4', './assets/projects/cmcs/cmcs.png')">
+              <img src="./assets/projects/cmcs/cmcs.png" class="card-img-top" alt="Contract Monthly Claim System">
+              <div class="card-body">
+                <h3 class="fw-bold">Contract Monthly Claim System</h3>
+                <p class="card-text">Manage and track your claims with faster approvals.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Card 5 -->
+          <div class="col-lg-6">
+            <div class="card h-100 border-0 shadow project" onclick="showProjectShowcase('agri-energy', 'Agri-Energy Connect', 
+            'A secure farm-to-market management system developed in C# with Microsoft SQL Server. Agri-Energy Connect bridges the gap between farmers and employees, enabling efficient product management, account creation, and advanced filtering tools.', null,
+            ['Secure login with role-based access','Farmer accounts with product creation and management','Employee portal for farmer and product oversight','Search and filter functionality for streamlined access','Scalable database integration with SQL Server'],
+            './assets/projects/agri-energy/video.mp4', './assets/projects/agri-energy/agri-energy.png')">
+              <img src="./assets/projects/agri-energy/agri-energy.png" class="card-img-top" alt="Agri-Energy Connect">
+              <div class="card-body">
+                <h3 class="fw-bold">Agri-Energy Connect</h3>
+                <p class="card-text">Helping farmers and employers manage products securely.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Card 6 -->
+          <div class="col-lg-6">
+            <div class="card h-100 border-0 shadow project" onclick="showProjectShowcase('abc-retail', 'ABC Retail', 'A retail e-commerce web application built in C# with Azure Table storage. ABC Retail provides a fast, secure, and user-friendly outdoor shopping experience with a modern catalog, seamless checkout, and account management.',
+             null, ['E-commerce platform', 'Full product catalog with outdoor retail focus','Azure Table-based product and order management','Secure account login and access','Shopping cart and streamlined checkout process','Fast, responsive, and scalable web experience'], 
+             './assets/projects/abc/video.mp4', './assets/projects/abc/abc-retail.png')">
+              <img src="./assets/projects/abc/abc-retail.png" class="card-img-top" alt="ABC retail">
+              <div class="card-body">
+                <h3 class="fw-bold">ABC Retail</h3>
+                <p class="card-text">Your one stop for any outdoor need.</p>
+              </div>
+            </div>
+          </div>
+          
+          
+          <!-- Project Showcase Modal -->
+          <div id="projectShowcaseModal" class="modal" style="margin-top: 0 !important;" onclick="closeProjectShowcase(event)">
+            <div class="modal-content project-showcase-content align-items-center text-color">
+              <span class="close-btn" onclick="closeProjectShowcase(event)">&times;</span>
+              
+              <!-- Left: Video -->
+              <div class="video-container">
+                <video id="projectVideo" autoplay muted loop playsinline>
+                  <source id="videoSource" src="" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              <!-- Right: Details -->
+              <div class="project-details">
+                <div class="project-header mb-3">
+                  <h2 id="showcaseTitle" class="fw-bold mb-2"></h2>
+                  <p id="showcaseDescription" class="lead mb-0"></p>
+                </div>
+
+                <!-- Features -->
+                <div class="project-features mb-3">
+                  <h5 class="fw-bold mb-2">Key Features</h5>
+                  <div id="featuresList" class="features-grid"></div>
+                </div>
+
+                <!-- Actions -->
+                <div class="project-actions d-flex flex-column flex-sm-row gap-3">
+                  <button id="visitProjectBtn" class="btn fun-btn px-4" style="display: none;">
+                    <i class="fas fa-external-link-alt me-2"></i> Visit Project
+                  </button>
+                </div>
+              </div>
+            </div>                      
+          </div>
+        </div>
+
+        <!-- Error Popup Modal -->
             <div id="errorModal" class="modal" style="margin-top: 0 !important;" onclick="closeErrorPopup(event)">
               <div class="modal-content align-items-center text-color">
                 <span class="close-btn" onclick="closeErrorPopup(event)">&times;</span>
                 <img src="./assets/images/oops.png" alt="Oops Icon"  style="width: 180px; margin-bottom: 20px;">
                 <h2>Sorry!</h2>
                 <p>This applications resources have been stopped. Please check back later.</p>
-                <p>
-                  You can view the project on
-                  <a href="#" target="_blank" rel="noopener noreferrer" id="githubLink" style="color:var(--primary-color); text-decoration: none;">
-                    <i class="fab fa-github icon"></i> GitHub here
-                  </a>.
-                </p>
               </div>
             </div>
-          </div>
-        </div>
       </section>
 
     <!-- About me -->
@@ -363,39 +435,81 @@
         picIcon.src = isDark ? darkPic : lightPic;
       });
 
-      // Image switching
-      let abcImages = [
-        "./assets/projects/abc/abc-retail.png",
-        "./assets/projects/abc/abc-products.png",
-        "./assets/projects/abc/abc-shop.png",
-        "./assets/projects/abc/abc-order.png",
-      ];
-      let budgetImages =[
-        "./assets/projects/budget-piggy/welcome+home.png",
-        "./assets/projects/budget-piggy/transaction+report.png"
-      ]
-      let abcIndex = 0;
-      let budgetIndex = 0;
-      setInterval(() => {
-        abcIndex = (abcIndex + 1) % abcImages.length;
-        budgetIndex = (budgetIndex + 1) % budgetImages.length;
-        document.getElementById("abcImage").src = abcImages[abcIndex];
-        document.getElementById("budgetImage").src = budgetImages[budgetIndex];
-      }, 4000); // Switch every 2 seconds
 
-      // Show popup
-      function showErrorPopup(cardElement) {
-        const githubURL = cardElement.getAttribute("data-github") || "#";
-        // Set the href of the GitHub link in the modal
-        const githubLink = document.getElementById("githubLink");
-        githubLink.href = githubURL;
-
-        document.getElementById("errorModal").style.display = "block";
-      }
       // Close popup
       function closeErrorPopup(event) {
         if (event.target.classList.contains("modal") || event.target.classList.contains("close-btn")) {
           document.getElementById("errorModal").style.display = "none";
+        }
+      }
+
+      function showProjectShowcase(id, title, description, projectUrl, features, videoSrc, imageSrc) {
+        const modal = document.getElementById('projectShowcaseModal');
+        const showcaseTitle = document.getElementById('showcaseTitle');
+        const showcaseDescription = document.getElementById('showcaseDescription');
+        const featuresList = document.getElementById('featuresList');
+        const visitProjectBtn = document.getElementById('visitProjectBtn');
+        const projectVideo = document.getElementById('projectVideo');
+        const videoSourceEl = document.getElementById('videoSource');
+
+        modal.style.display = 'block';
+        showcaseTitle.textContent = title;
+        showcaseDescription.textContent = description;
+
+        // Reset video/image
+        projectVideo.pause();
+        videoSourceEl.src = "";
+        projectVideo.load();
+        projectVideo.style.display = "none";
+        const fallbackImg = modal.querySelector(".fallback-image");
+        if (fallbackImg) fallbackImg.remove();
+
+        // Show video if available
+        if (videoSrc) {
+          videoSourceEl.src = videoSrc;
+          projectVideo.load();
+          projectVideo.style.display = "block";
+          projectVideo.setAttribute("poster", imageSrc || "");
+          projectVideo.oncanplay = () => {
+            projectVideo.play().catch(err => console.log("Autoplay blocked:", err));
+          };
+        }
+        // Fallback image if no video
+        else if (imageSrc) {
+          const img = document.createElement("img");
+          img.src = imageSrc;
+          img.alt = title + " preview";
+          img.className = "fallback-image";
+          projectVideo.parentElement.appendChild(img);
+        }
+
+        // Features
+        featuresList.innerHTML = '';
+        if (Array.isArray(features)) {
+          features.forEach(feature => {
+            const li = document.createElement('li');
+            li.textContent = feature;
+            featuresList.appendChild(li);
+          });
+        }
+
+        // Handle "Go to Project" button
+        visitProjectBtn.style.display = 'inline-block';
+        visitProjectBtn.onclick = () => {
+          if (projectUrl) {
+            window.open(projectUrl, '_blank');
+          } else {
+            document.getElementById("errorModal").style.display = "block";
+          }
+        };
+      }
+
+      function closeProjectShowcase(event) {
+        if (event.target.classList.contains("modal") || event.target.classList.contains("close-btn")) {
+          document.getElementById('projectShowcaseModal').style.display = 'none';
+
+          const projectVideo = document.getElementById('projectVideo');
+          projectVideo.pause();
         }
       }
 
