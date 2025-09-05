@@ -261,8 +261,8 @@ body {
 .about-img:hover {
   filter:
     drop-shadow(-6px 0 0 var(--rainbow1))
-    drop-shadow(6px 0 0 var(--rainbow1))
-    drop-shadow(0 -6px 0 var(--rainbow4))
+    drop-shadow(6px 0 0 var(--rainbow2))
+    drop-shadow(0 -6px 0 var(--rainbow3))
     drop-shadow(0 6px 0 var(--rainbow4));
 }
 
