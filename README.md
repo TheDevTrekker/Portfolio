@@ -1,5 +1,7 @@
 # 🌐 Derik Korf – Portfolio Website
 
+[GO TO ->](https://thedevtrekker.github.io/Portfolio/)
+--
 My personal portfolio showcasing selected projects, technical skills, and development focus areas.  
 Built with a clean, responsive design and modern UI features.
 
