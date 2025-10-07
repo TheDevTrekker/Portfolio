@@ -1,3 +1,9 @@
+/* Font loading optimization */
+@font-face {
+  font-family: 'FontAwesome';
+  font-display: swap;
+}
+
 :root {
   --fun1: #ef476f;
   --fun2: #073b4c;
