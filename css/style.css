@@ -262,7 +262,7 @@ body {
 }
 
 /* About me */
-.badge { background-color: var(--primary-color) !important; }
+.badge { background-color: var(--fun2); }
 .about-img { border: 5px solid transparent; max-width: 100%;}
 .about-img:hover {
   filter:
