@@ -8,7 +8,7 @@
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=flat-square&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
 
-## **Live Preview**
+## **Go To**
 
 **[Visit Portfolio →](https://thedevtrekker.github.io/Portfolio/)**
 
@@ -78,7 +78,7 @@ Interactive displays featuring:
 #### **Mobile Development**
 - **Budget Piggy** - Android expense tracking app with Firebase
 
-### 👨**About**
+### **About**
 - Educational background and qualifications
 - Technical skills and tool proficiency
 - Personal interests and professional experience
@@ -133,43 +133,6 @@ The portfolio is fully responsive across all device types:
 
 ---
 
-## **Getting Started**
-
-### **Prerequisites**
-- Modern web browser with CSS Grid and Flexbox support
-- No additional dependencies required for viewing
-
-### **Local Development**
-```bash
-# Clone the repository
-git clone https://github.com/thedevtrekker/Portfolio.git
-
-# Navigate to the project directory
-cd Portfolio
-
-# Open index.html in your browser
-# Or serve locally using a simple HTTP server
-python -m http.server 8000
-# OR
-npx serve .
-```
-
-### **Live Deployment**
-The portfolio is automatically deployed via **GitHub Pages** and accessible at:
-**https://thedevtrekker.github.io/Portfolio/**
-
----
-
-## **Future Enhancements**
-
-- [ ] **Blog Section** - Technical articles and project insights
-- [ ] **Project Filtering** - Category-based project organization
-- [ ] **Multilingual Support** - International accessibility
-- [ ] **Progressive Web App** - Offline functionality and app-like experience
-- [ ] **Analytics Integration** - User interaction tracking and insights
-
----
-
 ## **Connect & Collaborate**
 
 I'm always interested in discussing new opportunities and exciting projects!
@@ -186,12 +149,6 @@ I'm always interested in discussing new opportunities and exciting projects!
 - **Cloud:** Azure, AWS, Firebase, Netlify
 - **Mobile:** Android (Kotlin), React Native
 - **Tools:** Git, Docker, Visual Studio, VS Code
-
----
-
-## 📄 **License**
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
