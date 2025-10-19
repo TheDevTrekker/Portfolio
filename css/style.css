@@ -351,11 +351,20 @@ body {
   margin: 0;
 }
 
+/* Project showcase modal close button - fixed position in top right */
+.modal .project-showcase-content .close-btn {
+  position: fixed;
+  right: 15px;
+  top: 95px; /* Adjust to appear below navbar */
+  z-index: 10001;
+}
+
 .close-btn::before {
   content: "×";
   display: block;
-  line-height: 1;
-  transform: translateY(-0.5px);
+  line-height: 31px; /* Match button height minus border */
+  text-align: center;
+  transform: translateY(-2px);
   transition: inherit;
 }
 
@@ -789,6 +798,11 @@ body {
     margin-top: 80px !important;
     padding: 15px !important;
     max-height: calc(100vh - 100px);
+  }
+  
+  /* Adjust close button position for mobile */
+  .modal .project-showcase-content .close-btn {
+    top: 85px; /* Slightly higher on mobile */
   }
   
   .project-header h2 {
