@@ -98,7 +98,8 @@ body {
   display: block;
   max-width: 96%;
   height: auto;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  will-change: transform, filter;
 }
 .hero-img:hover {
   filter:
@@ -131,6 +132,7 @@ body {
 .profile-text p {
   font-size: 1.25rem;
   margin-top: 1.5rem;
+  color: var(--text-color);
 }
 
 /* Image highlight container for proper hover effects */
@@ -357,6 +359,23 @@ body {
   right: 15px;
   top: 95px; /* Adjust to appear below navbar */
   z-index: 10001;
+}
+
+/* Ensure X is perfectly centered in project popup close button */
+.modal .project-showcase-content .close-btn::before {
+  content: "×";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateY(-1px);
+  line-height: 1;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Hover effect for project popup close button */
+.modal .project-showcase-content .close-btn:hover::before {
+  color: white;
 }
 
 .close-btn::before {
@@ -641,6 +660,19 @@ body {
   #custom-cards .row { padding-top: 0.25rem !important; padding-bottom: 0.25rem !important; }
 }
 
+/* Dark mode mobile text color fixes */
+@media (max-width: 768px) {
+  body.dark-theme .profile-text p {
+    color: white !important;
+  }
+}
+
+@media (max-width: 576px) {
+  body.dark-theme .profile-text p {
+    color: white !important;
+  }
+}
+
 /* Two-column modal layout */
 .project-showcase-content {
   margin-top: 80px !important;
@@ -702,12 +734,13 @@ body {
   border-radius: 6px;
   border-left: 4px solid var(--primary-color);
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
   list-style: none;
   text-align: left;
   color: var(--text-color);
   font-size: 0.85rem;
   line-height: 1.3;
+  will-change: transform, box-shadow;
 }
 
 .features-grid li:hover {
@@ -721,6 +754,45 @@ body {
   position: relative;
   width: 100%;
   border-radius: 12px;
+}
+
+/* Budget Piggy video specific styling - optimized for phone video format */
+.budget-piggy-video {
+  width: auto !important;
+  max-width: 300px;
+  height: auto !important;
+  max-height: 600px;
+  margin: 0 auto !important;
+  border-radius: 36px !important;
+  object-fit: contain;
+  object-position: center;
+  background-color: var(--background-color);
+  display: block;
+}
+
+/* Ensure the video container clips content properly */
+.budget-piggy-container {
+  overflow: hidden !important;
+  border-radius: 36px !important;
+  display: inline-block !important;
+  max-width: 300px;
+  background-color: var(--background-color);
+  margin: 0 auto !important;
+}
+
+/* Override base video styles for budget piggy */
+.video-container .budget-piggy-container video,
+.budget-piggy-container video,
+#projectVideo.budget-piggy-video {
+  width: auto !important;
+  max-width: 300px !important;
+  height: auto !important;
+  max-height: 600px !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  background-color: var(--background-color);
+  border-radius: 44px !important;
+  display: block;
 }
 .video-container video::-webkit-media-controls {
   display: none !important;
@@ -776,6 +848,16 @@ body {
     object-fit: cover;
   }
   
+  /* Budget Piggy video adjustments for 992px and below */
+  .budget-piggy-video {
+    max-width: 280px !important;
+    max-height: 500px !important;
+  }
+  
+  .budget-piggy-container {
+    max-width: 280px !important;
+  }
+  
   .project-features {
     margin-bottom: 1rem !important;
   }
@@ -818,6 +900,29 @@ body {
     height: 250px;
   }
   
+  /* Budget Piggy video responsive adjustments */
+  .budget-piggy-video {
+    width: 100% !important;
+    max-height: 400px !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    border-radius: 40px !important;
+  }
+  
+  .budget-piggy-container {
+    width: auto !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    border-radius: 40px !important;
+  }
+  
+  /* Override video border radius for mobile */
+  .video-container .budget-piggy-container video,
+  .budget-piggy-container video,
+  #projectVideo.budget-piggy-video {
+    border-radius: 12px !important;
+  }
+  
   .features-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.3rem;
@@ -841,6 +946,25 @@ body {
     padding: 0.25rem 0.4rem;
     font-size: 0.7rem;
   }
+  
+  /* Budget Piggy video extra small screen adjustments */
+  .budget-piggy-video {
+    transform: scale(0.7) !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    border-radius: 40px !important;
+  }
+  
+  .budget-piggy-container {
+    margin: 0 auto !important;
+    padding: 0 !important;
+    border-radius: 40px !important;
+  }
+  
+  /* Override video border radius for extra small screens */
+  .video-container .budget-piggy-container video,
+  .budget-piggy-container video,
+  #projectVideo.budget-piggy-video {
+    border-radius: 40px !important;
+  }
 }
-
-/* Removed unused favicon styling classes */
