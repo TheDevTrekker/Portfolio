@@ -226,6 +226,41 @@ body {
   border: 6px solid var(--card-edges) !important;
   border-radius: 22px !important;
 }
+
+/* Ensure consistent aspect ratio for all project images */
+.project .card-img-top {
+  width: 100%;
+  aspect-ratio: 16/9; /* 1.78 ratio for consistency */
+  object-fit: cover;
+  object-position: center;
+  height: auto;
+}
+
+/* Fallback for browsers that don't support aspect-ratio */
+@supports not (aspect-ratio: 16/9) {
+  .project .card-img-top {
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio (9/16 * 100%) */
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .project picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .project picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
 .project:hover {
   filter:
     drop-shadow(-8px 0 0 var(--rainbow1))
@@ -239,9 +274,11 @@ body {
 .modal {
   display: none;
   position: fixed;
-  z-index: 999;
+  z-index: 9998;
   width: 100%; height: 100%;
   background-color: rgba(0,0,0,0.6);
+  top: 0;
+  left: 0;
 }
 .modal-content {
   background: var(--background-color);
@@ -255,10 +292,45 @@ body {
 }
 .close-btn {
   position: absolute;
-  right: 20px;
-  top: 10px;
-  font-size: 24px;
+  right: 15px;
+  top: 15px;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
+  z-index: 10000;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--primary-color);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  line-height: 1;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.close-btn::before {
+  content: "×";
+  display: block;
+  line-height: 1;
+  transform: translateY(-0.5px);
+  transition: inherit;
+}
+
+.close-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: scale(1.1);
+}
+
+.close-btn:hover::before {
+  color: white;
 }
 
 /* About me */
@@ -301,8 +373,8 @@ body {
   display: flex;
   list-style: none;
   padding: 0;
-  margin: 0;
-  justify-content: flex-end;
+  margin: 0 auto;
+  justify-content: center;
   gap: 15px;
 }
 .footer-right ul li a {
@@ -395,18 +467,81 @@ body {
   #custom-cards .card > div { padding: 1rem 1rem 0.5rem !important; }
 }
 @media (max-width: 992px) {#custom-cards h3 { font-size: 1.8rem !important; }}
-@media (max-width: 768px) {.profile-section {margin-top: 12rem !important;}}
+@media (max-width: 768px) {
+  .profile-section {margin-top: 8rem !important;}
+  
+  /* Focus section mobile fixes */
+  #focus {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  
+  #custom-cards { padding: 0.5rem 0 !important; }
+  #custom-cards .row { margin: 0 !important; padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; }
+  #custom-cards .col-12 { margin-bottom: 0.5rem; }
+  #custom-cards .card { min-height: auto !important; }
+  #custom-cards h3 { font-size: 1.2rem !important; margin-bottom: 0.5rem !important; padding-top: 1rem !important; }
+  #custom-cards .card > div { padding: 1rem 1rem 0.5rem !important; }
+  
+  /* Reduce section padding on mobile */
+  .py-5 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  
+  /* Projects section mobile fixes */
+  .projects-section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  
+  .projects-section h1 {
+    margin-top: 1rem !important;
+  }
+  
+  /* About section mobile fixes */
+  .about-section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+}
 @media (max-width: 576px) {
-  #custom-cards { transform: scale(0.9); }
+  #custom-cards { transform: scale(0.9); padding: 1rem 0 !important; }
   #custom-cards h1 { font-size: 1.5rem !important; }
-  #custom-cards h3 { font-size: 1rem !important; }
+  #custom-cards h3 { font-size: 1.1rem !important; padding-top: 0.5rem !important; }
   #custom-cards p, #custom-cards small { font-size: 0.75rem !important; }
   .footer-right ul li a {width: 40px;height: 40px;font-size: 20px;}
+  
+  /* Further reduce margins on small screens */
+  .profile-section {margin-top: 6rem !important;}
+  
+  .py-5 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  
+  .projects-section {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  
+  .projects-section h1 {
+    margin-top: 0.5rem !important;
+  }
+  
+  /* Focus section extra small screens */
+  #focus {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+  
+  #custom-cards { padding: 0.25rem 0 !important; }
+  #custom-cards .row { padding-top: 0.25rem !important; padding-bottom: 0.25rem !important; }
 }
 
 /* Two-column modal layout */
 .project-showcase-content {
-  margin-top: 6% !important;
+  margin-top: 80px !important;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
@@ -454,20 +589,22 @@ body {
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .features-grid li {
-  padding: 1rem;
-  border-radius: 8px;
-  border-left: 8px solid var(--primary-color);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border-left: 4px solid var(--primary-color);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
   list-style: none;
   text-align: left;
   color: var(--text-color);
+  font-size: 0.85rem;
+  line-height: 1.3;
 }
 
 .features-grid li:hover {
@@ -502,8 +639,10 @@ body {
   .project-showcase-content {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    margin: 10% auto !important;
+    margin-top: 80px !important;
     padding: 20px 20px !important;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
   }
   
   .project-header h2 {
@@ -511,7 +650,8 @@ body {
   }
   
   .features-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.4rem;
   }
   
   .project-actions {
@@ -521,5 +661,76 @@ body {
   .project-actions .btn {
     width: 100%;
     margin-bottom: 0.5rem;
+  }
+  
+  /* Make video larger and text more compact on mobile */
+  .video-container {
+    margin-bottom: 1rem;
+  }
+  
+  .video-container video {
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .project-features {
+    margin-bottom: 1rem !important;
+  }
+  
+  .project-features h5 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .features-grid li {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-showcase-content {
+    margin-top: 80px !important;
+    padding: 15px !important;
+    max-height: calc(100vh - 100px);
+  }
+  
+  .project-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .project-header p {
+    font-size: 1rem;
+  }
+  
+  .video-container video {
+    height: 250px;
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.3rem;
+    margin-bottom: 1rem !important;
+  }
+  
+  .features-grid li {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.75rem;
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 480px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+  
+  .features-grid li {
+    padding: 0.25rem 0.4rem;
+    font-size: 0.7rem;
   }
 }
