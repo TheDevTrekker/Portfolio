@@ -257,9 +257,8 @@ body {
 .project {
   color: var(--text-color);
   background-color: var(--background-color);
-  border-radius: 22px !important;
+  border-radius: 23px !important;
   overflow: hidden;
-  transition: box-shadow 0.3s ease;
 }
 
 /* Ensure consistent aspect ratio for all project images */
