@@ -1,8 +1,4 @@
-/* Font loading optimization */
-@font-face {
-  font-family: 'FontAwesome';
-  font-display: swap;
-}
+/* FontAwesome loaded via CDN - no local font-face needed */
 
 :root {
   --fun1: #ef476f;
@@ -130,21 +126,21 @@ body {
   color: var(--text-color);
   font-size: 4rem;
   line-height: 1.2;
-  margin-top: -40px;
+  margin-top: 15px;
 }
 .profile-text p {
   font-size: 1.25rem;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 }
 
 /* Image highlight container for proper hover effects */
 .col-md-6.img-highlight {
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 0;
 }
 
 .img-highlight {
   margin: 0;
+  padding: 0;
 }
 
 /* Focus points */
@@ -228,8 +224,7 @@ body {
   border-right: 1px solid var(--caret);
   animation: blink 0.5s linear infinite;
 }
-.typewriter.thick::after { border-right: 1ch solid var(--caret); }
-.typewriter.nocaret::after { border-right: 0; }
+/* Removed unused typewriter variants */
 @media (prefers-reduced-motion) {.typewriter::after { animation: none; }}
 
 /* Focus colors */
@@ -252,14 +247,19 @@ body {
 .projects-section {
   color: #F0F0F0;
   background-color: var(--secondary-color);
-  padding: 3rem 0;
+  padding: 3rem 0 6rem 0;
+}
+
+/* Ensure projects row has enough bottom space for hover effects */
+.projects-section .row {
+  margin-bottom: 2rem;
 }
 .project {
   color: var(--text-color);
   background-color: var(--background-color);
-  border: 6px solid var(--card-edges) !important;
   border-radius: 22px !important;
   overflow: hidden;
+  transition: box-shadow 0.3s ease;
 }
 
 /* Ensure consistent aspect ratio for all project images */
@@ -301,11 +301,11 @@ body {
 }
 
 .project:hover {
-  filter:
-    drop-shadow(-8px 0 0 var(--rainbow1))
-    drop-shadow(8px 0 0 var(--rainbow2))
-    drop-shadow(0 -8px 0 var(--rainbow3))
-    drop-shadow(0 8px 0 var(--rainbow4));
+  box-shadow:
+    -8px 0 0 var(--rainbow1),
+    8px 0 0 var(--rainbow2),
+    0 -8px 0 var(--rainbow3),
+    0 8px 0 var(--rainbow4) !important;
   cursor: pointer;
 }
 
@@ -348,8 +348,6 @@ body {
   border: 2px solid var(--primary-color);
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  line-height: 1;
-  text-align: center;
   padding: 0;
   margin: 0;
 }
@@ -408,6 +406,10 @@ body {
   min-width: 280px;
 }
 .footer-left p { margin-bottom: 0.5rem; }
+.footer-right {
+  text-align: center;
+}
+
 .footer-right ul {
   display: flex;
   list-style: none;
@@ -459,6 +461,13 @@ body {
   color: #fff;
 }
 
+/* Center copyright text below social icons */
+.footer-right p {
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}
+
 .fun-btn {
   background-color: var(--primary-color);
   color: white;
@@ -500,18 +509,49 @@ body {
 }
 
 /* Responsiveness */
+@media (min-width: 1401px) {
+  /* Keep title higher for very large screens */
+  .profile-text h1 {
+    margin-top: 10px !important;
+  }
+}
+
+@media (max-width: 1400px) and (min-width: 1201px) {
+  /* Fix positioning for 1200px-1400px range to keep title above blue */
+  .profile-text h1 {
+    margin-top: -10px !important;
+  }
+}
+
 @media (max-width: 1200px) {
   #custom-cards h3 { font-size: 1.7rem !important; }
   #custom-cards p, #custom-cards small { font-size: 0.85rem !important; }
   #custom-cards .card > div { padding: 1rem 1rem 0.5rem !important; }
+  
+  /* Adjust title position for large screens */
+  .profile-text h1 {
+    margin-top: 15px !important;
+  }
 }
-@media (max-width: 992px) {#custom-cards h3 { font-size: 1.8rem !important; }}
+@media (max-width: 992px) {
+  #custom-cards h3 { font-size: 1.8rem !important; }
+  
+  /* Ensure title stays above blue background on tablet screens */
+  .profile-text h1 {
+    margin-top: 10px !important;
+  }
+}
 @media (max-width: 768px) {
   .profile-section {margin-top: 8rem !important;}
   
-  /* Fix profile text heading being cut off */
+  /* Adjust profile text heading position for mobile */
   .profile-text h1 {
-    margin-top: 0 !important;
+    margin-top: 5px !important;
+  }
+  
+  /* Adjust profile text paragraph spacing on mobile */
+  .profile-text p {
+    margin-top: 1rem !important;
   }
   
   /* Focus section mobile fixes */
@@ -536,7 +576,7 @@ body {
   /* Projects section mobile fixes */
   .projects-section {
     padding-top: 2rem !important;
-    padding-bottom: 2rem !important;
+    padding-bottom: 5rem !important;
   }
   
   .projects-section h1 {
@@ -559,9 +599,14 @@ body {
   /* Further reduce margins on small screens */
   .profile-section {margin-top: 6rem !important;}
   
-  /* Fix profile text heading being cut off on small screens */
+  /* Adjust profile text heading position for small screens */
   .profile-text h1 {
-    margin-top: 0 !important;
+    margin-top: 0px !important;
+  }
+  
+  /* Adjust profile text paragraph spacing on small screens */
+  .profile-text p {
+    margin-top: 0.75rem !important;
   }
   
   .py-5 {
@@ -571,7 +616,7 @@ body {
   
   .projects-section {
     padding-top: 1.5rem !important;
-    padding-bottom: 1.5rem !important;
+    padding-bottom: 4rem !important;
   }
   
   .projects-section h1 {
@@ -784,3 +829,5 @@ body {
     font-size: 0.7rem;
   }
 }
+
+/* Removed unused favicon styling classes */
