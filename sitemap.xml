@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://thedevtrekker.github.io/Portfolio/</loc>
     <lastmod>2025-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <!-- Main portfolio logo and branding -->
     <image:image>
       <image:loc>https://thedevtrekker.github.io/Portfolio/assets/images/logo_clear.png</image:loc>
       <image:title>Derik Korf Portfolio Logo</image:title>
-      <image:caption>Professional logo for Derik Korf's Full-Stack Developer Portfolio</image:caption>
     </image:image>
-    <!-- Hero profile image -->
     <image:image>
       <image:loc>https://thedevtrekker.github.io/Portfolio/assets/images/derik.color.webp</image:loc>
       <image:title>Derik Korf - Full-Stack Developer</image:title>
-      <image:caption>Professional photo of Derik Korf, Full-Stack Developer and Software Engineer</image:caption>
     </image:image>
   </url>
 </urlset>
