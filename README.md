@@ -2,15 +2,14 @@
 
 > **Modern, responsive portfolio showcasing full-stack development expertise, featuring interactive project displays, dynamic theming, and optimized performance.**
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-View_Portfolio-00ADB5?style=for-the-badge&logo=github)](https://thedevtrekker.github.io/Portfolio/)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=flat-square&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
 
-## **Go To**
+## **Go to Website**
 
-**[Visit Portfolio →](https://thedevtrekker.github.io/Portfolio/)**
+**[![Live Demo](https://img.shields.io/badge/Live_Demo-View_Portfolio-00ADB5?style=for-the-badge&logo=github)](https://thedevtrekker.github.io/Portfolio/)**
 
 ---
 
@@ -66,9 +65,9 @@ A comprehensive portfolio website showcasing **Derik Korf's** full-stack develop
 Interactive displays featuring:
 
 #### **Web Applications**
-- **[Kanban Task Manager](https://thedevtrekker.github.io/Kanban-Task-Manager/)** - Real-time task management with Firestore
-- **[Client Manager Demo](https://thedevtrekker.github.io/ClientManager/)** - Business registry dashboard
 - **[CropIntelek Website](https://cropintelek.co.za)** - Professional agricultural research showcase
+- **[Kanban Task Manager Demo](https://thedevtrekker.github.io/Kanban-Task-Manager/)** - Real-time task management with Firestore
+- **[Client Manager Demo](https://thedevtrekker.github.io/ClientManager/)** - Business registry dashboard
 
 #### **Enterprise Solutions**
 - **Contract Monthly Claim System** - C# ASP.NET Core with SQL Server
