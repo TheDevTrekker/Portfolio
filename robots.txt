@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
 
+# Crawl-delay for better server performance
+Crawl-delay: 1
+
 # Sitemap
 Sitemap: https://thedevtrekker.github.io/Portfolio/sitemap.xml
