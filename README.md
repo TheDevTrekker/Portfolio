@@ -156,5 +156,5 @@ I'm always interested in discussing new opportunities and exciting projects!
 </p>
 
 <p align="center">
-  <a href="https://thedevtrekker.github.io/portfolio/"> Visit Live Portfolio</a> • 
+  <a href="https://thedevtrekker.github.io/Portfolio/"> Visit Live Portfolio</a> • 
 </p>
