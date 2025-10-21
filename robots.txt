@@ -5,4 +5,4 @@ Allow: /
 Crawl-delay: 1
 
 # Sitemap
-Sitemap: https://thedevtrekker.github.io/Portfolio/sitemap.xml
+Sitemap: https://thedevtrekker.github.io/portfolio/sitemap.xml
