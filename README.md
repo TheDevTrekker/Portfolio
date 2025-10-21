@@ -9,7 +9,7 @@
 
 ## **Go to Website**
 
-**[![Live Demo](https://img.shields.io/badge/Live_Demo-View_Portfolio-00ADB5?style=for-the-badge&logo=github)](https://thedevtrekker.github.io/portfolio/)**
+**[![Live Demo](https://img.shields.io/badge/Live_Demo-View_Portfolio-00ADB5?style=for-the-badge&logo=github)](https://thedevtrekker.github.io/Portfolio/)**
 
 ---
 
@@ -139,7 +139,7 @@ I'm always interested in discussing new opportunities and exciting projects!
 ### **Professional Links**
 - **LinkedIn:** [linkedin.com/in/derik-korf](https://www.linkedin.com/in/derik-korf/)
 - **GitHub:** [github.com/thedevtrekker](https://github.com/thedevtrekker)
-- **Email:** [Contact via Portfolio](https://thedevtrekker.github.io/portfolio/#contact-me)
+- **Email:** [Contact via Portfolio](https://thedevtrekker.github.io/Portfolio/#contact-me)
 
 ### **Technical Stack Expertise**
 - **Frontend:** React, JavaScript ES6+, HTML5, CSS3, Bootstrap
@@ -156,5 +156,5 @@ I'm always interested in discussing new opportunities and exciting projects!
 </p>
 
 <p align="center">
-  <a href="https://thedevtrekker.github.io/portfolio/"> Visit Live Portfolio</a> • 
+  <a href="https://thedevtrekker.github.io/Portfolio/"> Visit Live Portfolio</a> • 
 </p>
