@@ -9,7 +9,7 @@
 
 ## **Go to Website**
 
-**[![Live Demo](https://img.shields.io/badge/Live_Demo-View_Portfolio-00ADB5?style=for-the-badge&logo=github)](https://thedevtrekker.github.io/portfolio/)**
+**[![Live Demo](https://img.shields.io/badge/Live_Demo-View_Portfolio-00ADB5?style=for-the-badge&logo=github)](https://thedevtrekker.github.io/Portfolio/)**
 
 ---
 
