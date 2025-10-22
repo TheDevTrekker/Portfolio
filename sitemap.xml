@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://thedevtrekker.github.io/Portfolio/</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://thedevtrekker.github.io/Portfolio/assets/images/derik.color.webp</image:loc>
+      <image:title>Derik Korf - Full-Stack Developer</image:title>
+      <image:caption>Professional headshot of Derik Korf, Full-Stack Developer</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://thedevtrekker.github.io/Portfolio/assets/images/logo-lg-dark.png</image:loc>
+      <image:title>Derik Korf Portfolio Logo</image:title>
+      <image:caption>Professional portfolio logo</image:caption>
+    </image:image>
   </url>
 </urlset>

@@ -1,0 +1,7 @@
+<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gold background square with rounded corners -->
+  <rect x="2" y="2" width="56" height="56" rx="12" ry="12" fill="#FFD700" stroke="#B8860B" stroke-width="2"/>
+  
+  <!-- Purple KB - centered -->
+  <text x="30" y="36" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#4B0082" text-anchor="middle" dominant-baseline="middle">KB</text>
+</svg>

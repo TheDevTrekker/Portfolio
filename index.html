@@ -32,6 +32,27 @@
       <meta name="distribution" content="global">
       <meta name="category" content="Portfolio, Web Development, Software Development">
       
+      <!-- Advanced SEO Meta Tags -->
+      <meta name="geo.region" content="ZA">
+      <meta name="geo.placename" content="Pretoria">
+      <meta name="geo.position" content="-25.7479;28.2293">
+      <meta name="ICBM" content="-25.7479, 28.2293">
+      <meta name="DC.title" content="Derik Korf Portfolio">
+      <meta name="DC.creator" content="Derik Korf">
+      <meta name="DC.subject" content="Software Development, Web Development, Mobile Development">
+      <meta name="DC.description" content="Professional portfolio showcasing full-stack development projects and skills">
+      <meta name="DC.publisher" content="Derik Korf">
+      <meta name="DC.contributor" content="Derik Korf">
+      <meta name="DC.date" content="2025-01-27">
+      <meta name="DC.type" content="Portfolio">
+      <meta name="DC.format" content="text/html">
+      <meta name="DC.identifier" content="https://thedevtrekker.github.io/Portfolio/">
+      <meta name="DC.source" content="https://thedevtrekker.github.io/Portfolio/">
+      <meta name="DC.language" content="en">
+      <meta name="DC.relation" content="https://thedevtrekker.github.io/Portfolio/">
+      <meta name="DC.coverage" content="Global">
+      <meta name="DC.rights" content="Copyright Derik Korf">
+      
       <!-- Open Graph Meta Tags -->
       <meta property="og:title" content="Derik Korf Portfolio | Full-Stack Developer & Software Developer">
       <meta property="og:description" content="Full-Stack Developer specializing in React, C#, .NET, JavaScript & cloud solutions. Explore my portfolio featuring modern web applications, mobile apps, and enterprise development projects.">
@@ -160,6 +181,15 @@
       <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
       <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous"></noscript>
       
+      <!-- Performance optimization: Preload critical resources -->
+      <link rel="preload" href="./assets/images/derik.color.webp" as="image" type="image/webp">
+      <link rel="preload" href="./css/style.css" as="style">
+      
+      <!-- DNS prefetch for external domains -->
+      <link rel="dns-prefetch" href="//use.fontawesome.com">
+      <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+      <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+      
       <!-- Critical CSS inlined for faster rendering -->
       <style>
         :root {
@@ -204,6 +234,8 @@
           max-width: 96%;
           height: auto;
           transition: all 0.3s ease;
+          position: relative;
+          z-index: 2;
         }
         .background-half {
           position: absolute;
@@ -211,12 +243,22 @@
           left: 0;
           height: 50%;
           width: 100%;
-          background-color: var(--primary-color);
-          z-index: 0;
+          background: linear-gradient(-45deg, rgba(0, 173, 181, 0.8), rgba(255, 60, 172, 0.6), rgba(120, 75, 160, 0.7), rgba(43, 134, 197, 0.6), rgba(0, 255, 185, 0.7), rgba(0, 173, 181, 0.8));
+          background-size: 600% 600%;
+          animation: gradientShift 15s ease-in-out infinite;
+          z-index: 1;
+        }
+        @keyframes gradientShift {
+          0% { background-position: 0% 50%; }
+          20% { background-position: 50% 0%; }
+          40% { background-position: 100% 50%; }
+          60% { background-position: 50% 100%; }
+          80% { background-position: 0% 50%; }
+          100% { background-position: 0% 50%; }
         }
         .content-wrapper {
           position: relative;
-          z-index: 1;
+          z-index: 2;
           padding-top: 2rem;
         }
         .profile-text h1 {
@@ -265,9 +307,65 @@
       
       <!-- Main CSS -->
       <link rel="stylesheet" href="./css/style.css">
+      
+      <!-- Performance monitoring and analytics -->
+      <script>
+        // Performance monitoring
+        window.addEventListener('load', function() {
+          // Core Web Vitals monitoring
+          if ('PerformanceObserver' in window) {
+            // Largest Contentful Paint (LCP)
+            new PerformanceObserver((entryList) => {
+              const entries = entryList.getEntries();
+              const lastEntry = entries[entries.length - 1];
+              console.log('LCP:', lastEntry.startTime);
+            }).observe({entryTypes: ['largest-contentful-paint']});
+            
+            // First Input Delay (FID)
+            new PerformanceObserver((entryList) => {
+              const entries = entryList.getEntries();
+              entries.forEach((entry) => {
+                console.log('FID:', entry.processingStart - entry.startTime);
+              });
+            }).observe({entryTypes: ['first-input']});
+            
+            // Cumulative Layout Shift (CLS)
+            let clsValue = 0;
+            new PerformanceObserver((entryList) => {
+              for (const entry of entryList.getEntries()) {
+                if (!entry.hadRecentInput) {
+                  clsValue += entry.value;
+                }
+              }
+              console.log('CLS:', clsValue);
+            }).observe({entryTypes: ['layout-shift']});
+          }
+        });
+        
+        // Resource loading optimization
+        document.addEventListener('DOMContentLoaded', function() {
+          // Lazy load non-critical images
+          const images = document.querySelectorAll('img[loading="lazy"]');
+          if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  const img = entry.target;
+                  img.src = img.dataset.src || img.src;
+                  img.classList.remove('lazy');
+                  observer.unobserve(img);
+                }
+              });
+            });
+            images.forEach(img => imageObserver.observe(img));
+          }
+        });
+      </script>
   </head>
 
   <body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="visually-hidden-focusable">Skip to main content</a>
     
@@ -334,11 +432,12 @@
     <!-- FOCUS -->
     <section id="focus" class="py-5" aria-labelledby="focus-heading">
       <div class="container px-4 py-5" id="custom-cards">
+        <div class="focus-content-wrapper">
         <h2 id="focus-heading" class="pb-2 text-center fw-bold display-4 text-color">My <span class="typewriter" aria-label="Focus, passion, goal, success"></span></h2>
         <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
           <!-- 1-->
           <div class="col-12 col-md-4 col-lg-4">
-            <div class="card card-cover h-100 overflow-hidden rounded-4 color-focus1">
+            <div class="card card-cover h-100 overflow-hidden rounded-4 color-focus1 scroll-animate scroll-animate-delay-1">
               <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                 <h3 class="pt-5 mt-5 mb-4 display-5 lh-1 fw-bold">User-first Thinking</h3>
                 <p class="mb-4">I design with empathy — always optimizing for real people, not just devices.</p>
@@ -356,7 +455,7 @@
           </div>
           <!-- 2 -->
           <div class="col-12 col-md-4 col-lg-4">
-            <div class="card card-cover h-100 overflow-hidden rounded-4 color-focus2">
+            <div class="card card-cover h-100 overflow-hidden rounded-4 color-focus2 scroll-animate scroll-animate-delay-2">
               <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                 <h3 class="pt-5 mt-5 mb-4 display-5 lh-1 fw-bold">Built to grow, not just go</h3>
                 <p class="mb-4">Designing apps that grow effortlessly — handling traffic spikes and evolving.</p>
@@ -372,7 +471,7 @@
           </div>
           <!-- 3 -->
           <div class="col-12 col-md-4 col-lg-4">
-            <div class="card card-cover h-100 overflow-hidden rounded-4 color-focus3">
+            <div class="card card-cover h-100 overflow-hidden rounded-4 color-focus3 scroll-animate scroll-animate-delay-3">
               <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                 <h3 class="pt-5 mt-5 mb-4 display-5 lh-1 fw-bold">Fast & Responsive</h3>
                 <p class="mb-4">From mobile to desktop, I optimize for speed, responsiveness, and reliability.</p>
@@ -391,6 +490,7 @@
             </div>
           </div>
         </div>
+        </div>
       </div>
     </section>
 
@@ -400,171 +500,134 @@
         <h1 id="projects-heading" class="text-center fw-bold mb-5 display-4 mt-5">My Projects</h1>
         <div class="row g-4">
           <!-- Card 1 -->
-          <div class="col-lg-6">
-            <div class="card h-100 border-0 shadow project" 
+          <div class="col-lg-4 col-md-6">
+            <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-1" 
                 role="button"
                 tabindex="0"
                 aria-label="View CropIntelek project details - Agricultural research company website"
                 onclick="showProjectShowcase('cropintelek', 'CropIntelek Research Website', 'A professional company website designed for CropIntelek (Pty) Ltd, showcasing agricultural research services, trial methodologies, project highlights, and team expertise. Built as a responsive, accessible web app, it provides clients with clear service overviews, project galleries, and direct contact functionality.', 
-                'https://crop-intelek.github.io', ['Responsive multi-section layout (Hero, About, Services, Projects, Team, Contact)', 'Dropdown navigation with gallery integration', 'Showcase of trial projects with image-based case studies', 'Contact form with Netlify form handling', 'Team profiles with role descriptions and experience summaries', 'Modern and accessible design optimized for agricultural research branding'], 
-                './assets/projects/cropintelek/cropintelek.webm', './assets/projects/cropintelek/home.webp')"
+                'https://crop-intelek.github.io', ['Responsive multi-section layout (Hero, About, Services, Projects, Team, Contact)', 'Dropdown navigation with gallery integration', 'Showcase of trial projects with image-based case studies', 'Contact form with Netlify form handling', 'Team profiles with role descriptions and experience summaries', 'Modern and accessible design optimized for agricultural research branding'])"
                 onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
-              <picture>
-                <source srcset="./assets/projects/cropintelek/home_small.webp 952w, ./assets/projects/cropintelek/home_medium.webp 1428w, ./assets/projects/cropintelek/home.webp 1904w" 
-                        sizes="(max-width: 768px) 350px, (max-width: 992px) 450px, 534px" 
-                        type="image/webp">
-                <img src="./assets/projects/cropintelek/home.webp" 
-                     class="card-img-top" 
-                     alt="CropIntelek agricultural research company website homepage showing professional layout with navigation, hero section, and service overview"
-                     width="534" 
-                     height="255"
+              <div class="project-logo">
+                <img src="./assets/projects/cropintelek/logo.webp" 
+                     alt="CropIntelek Logo"
                      loading="lazy">
-              </picture>
-              <div class="card-body">
-                <h3 class="fw-bold">CropIntelek</h3>
-                <p class="card-text">Company web app showcasing agricultural trials, services, and team expertise.</p>
               </div>
+              <h3 class="fw-bold">CropIntelek</h3>
+              <p>Built with HTML5, CSS3, JavaScript & Netlify. Responsive agricultural research website.</p>
             </div>
           </div>
           <!-- Card 2 -->
-          <div class="col-lg-6">
-            <div class="card h-100 border-0 shadow project" onclick="showProjectShowcase('kanban', 'Kanban Task Manager', 
+          <div class="col-lg-4 col-md-6">
+            <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-2" onclick="showProjectShowcase('kanban', 'Kanban Task Manager', 
             'A modern Kanban-based task management system built with pure HTML, JavaScript, and Firestore. Designed for an accounting company, it offers real-time collaboration, statistical insights, and an intuitive, vibrant UI for seamless workflow management.',
              'https://thedevtrekker.github.io/Kanban-Task-Manager/',
-            ['Task creation with statuses and due dates', 'Member management', 'Role assignments', 'User authentication', 'Real-time updates powered by Firestore', 'Statistical insights with charts'],
-            './assets/projects/kanban/kanban.webm' ,'./assets/projects/kanban/home.webp')">
-              <picture>
-                <source srcset="./assets/projects/kanban/home_small.webp 743w, ./assets/projects/kanban/home_medium.webp 1114w, ./assets/projects/kanban/home.webp 1485w" 
-                        sizes="(max-width: 768px) 350px, (max-width: 992px) 450px, 534px" 
-                        type="image/webp">
-                <img src="./assets/projects/kanban/home.webp" 
-                     class="card-img-top" 
-                     alt="Kanban Task Manager"
-                     width="534" 
-                     height="289"
+            ['Task creation with statuses and due dates', 'Member management', 'Role assignments', 'User authentication', 'Real-time updates powered by Firestore', 'Statistical insights with charts'])">
+              <div class="project-logo">
+                <img src="./assets/images/kanban-logo.svg" 
+                     alt="Kanban Task Manager Logo"
                      loading="lazy">
-              </picture>
-              <div class="card-body">
-                <h3 class="fw-bold">Kanban Task Manager</h3>
-                <p class="card-text">Manage your tasks efficiently with a Kanban board.</p>
               </div>
+              <h3 class="fw-bold">Kanban Task Manager</h3>
+              <p>HTML, CSS, JavaScript & Firestore. Real-time collaborative task management.</p>
             </div>
           </div>
           <!-- Card 3 -->
-          <div class="col-lg-6">
-            <div class="card h-100 border-0 shadow project" onclick="showProjectShowcase('budget-piggy', 'Budget Piggy', 'A mobile expense tracking application developed in Android Studio using Kotlin and Firebase. Budget Piggy provides secure authentication, intuitive money management, and engaging visuals, making financial planning simple and effective.', 
-              null,['Secure login and account management','Log expenses and track budgets in real time','Transfer funds between accounts','Upload and manage receipts digitally','Statistical reports and visual dashboards','Push notifications for reminders and updates'],
-              './assets/projects/budget-piggy/budget-Piggy.webm' , './assets/projects/budget-piggy/welcome+home.webp')">
-              <picture>
-                <source srcset="./assets/projects/budget-piggy/welcome+home_small.webp 940w, ./assets/projects/budget-piggy/welcome+home_medium.webp 1410w, ./assets/projects/budget-piggy/welcome+home.webp 1880w" 
-                        sizes="(max-width: 768px) 350px, (max-width: 992px) 450px, 534px" 
-                        type="image/webp">
-                <img src="./assets/projects/budget-piggy/welcome+home.webp" 
-                     class="card-img-top" 
-                     alt="Budget piggy"
-                     width="534" 
-                     height="256"
+          <div class="col-lg-4 col-md-6">
+            <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-3" onclick="showProjectShowcase('budget-piggy', 'Budget Piggy', 'A mobile expense tracking application developed in Android Studio using Kotlin and Firebase. Budget Piggy provides secure authentication, intuitive money management, and engaging visuals, making financial planning simple and effective.', 
+              null,['Secure login and account management','Log expenses and track budgets in real time','Transfer funds between accounts','Upload and manage receipts digitally','Statistical reports and visual dashboards','Push notifications for reminders and updates'])">
+              <div class="project-logo">
+                <img src="./assets/projects/budget-piggy/logo.png" 
+                     alt="Budget Piggy Logo"
                      loading="lazy">
-              </picture>
-              <div class="card-body">
-                <h3 class="fw-bold">Budget Piggy</h3>
-                <p class="card-text">Financial tracking made fun, interactive and engaging.</p>
               </div>
+              <h3 class="fw-bold">Budget Piggy</h3>
+              <p>Kotlin, Android Studio & Firebase. Mobile expense tracking with secure authentication.</p>
             </div>
           </div>
           <!-- Card 4 -->
-          <div class="col-lg-6">
-          <div class="card h-100 border-0 shadow project" 
+          <div class="col-lg-4 col-md-6">
+          <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-4" 
               onclick="showProjectShowcase(
                 'client-manager','Client Manager','A business registry dashboard built with HTML, CSS, and JavaScript. The Client Manager allows users to manage companies, individuals, and directors in a clean, interactive interface. This demo version uses LocalStorage for persistence, making it ideal for portfolio showcasing and quick deployments without a backend.',
-                'https://thedevtrekker.github.io/ClientManager/',['Add, edit, and remove companies and individuals','Link directors to multiple companies','Store tax numbers, addresses, and contact details','Search and filter across records','Real-time updates powered by Firestore','Scalable for big companies, businesses, and individuals'],
-                './assets/projects/client-manager/client-manager.webm',
-                './assets/projects/client-manager/home.webp'
-              )">
-            <picture>
-              <source srcset="./assets/projects/client-manager/home_small.webp 958w, ./assets/projects/client-manager/home_medium.webp 1436w, ./assets/projects/client-manager/home.webp 1915w" 
-                      sizes="(max-width: 768px) 350px, (max-width: 992px) 450px, 534px" 
-                      type="image/webp">
-              <img src="./assets/projects/client-manager/home.webp" 
-                   class="card-img-top" 
-                   alt="Client Manager"
-                   width="534" 
-                   height="252"
+                'https://thedevtrekker.github.io/ClientManager/',['Add, edit, and remove companies and individuals','Link directors to multiple companies','Store tax numbers, addresses, and contact details','Search and filter across records','Real-time updates powered by Firestore','Scalable for big companies, businesses, and individuals'])">
+            <div class="project-logo">
+              <img src="./assets/images/client-manager-logo.svg" 
+                   alt="Client Manager Logo"
                    loading="lazy">
-            </picture>
-            <div class="card-body">
-              <h3 class="fw-bold">Client Manager Demo</h3>
-              <p class="card-text">A portfolio-ready demo for managing companies, individuals, and directors.</p>
             </div>
+            <h3 class="fw-bold">Client Manager</h3>
+            <p>HTML, CSS, JavaScript & LocalStorage. Business registry dashboard.</p>
           </div>
         </div>
 
           <!-- Card 5 -->
-          <div class="col-lg-6">
-            <div class="card h-100 border-0 shadow project" onclick="showProjectShowcase('cmcs', 'Contract Monthly Claim System', 
+          <div class="col-lg-4 col-md-6">
+            <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-1" onclick="showProjectShowcase('cmcs', 'Contract Monthly Claim System', 
             'An enterprise-grade claim management solution built with C# on Visual Studio and Microsoft SQL Server. CMCS streamlines the academic claims process with role-based access, multi-level approvals, and fast reporting for lecturers, coordinators, and managers.', 'https://contract-monthly-claim-system.onrender.com',
-            ['Secure login with role-based permissions','Lecturer claim submissions with document support','Coordinator and academic manager approval workflows','Real-time status tracking and notifications','Comprehensive reports with export and print options','Clean, responsive, and efficient interface'],
-            './assets/projects/cmcs/cmcs.webm', './assets/projects/cmcs/cmcs.webp')">
-              <picture>
-                <source srcset="./assets/projects/cmcs/cmcs_small.webp 958w, ./assets/projects/cmcs/cmcs_medium.webp 1437w, ./assets/projects/cmcs/cmcs.webp 1916w" 
-                        sizes="(max-width: 768px) 350px, (max-width: 992px) 450px, 534px" 
-                        type="image/webp">
-                <img src="./assets/projects/cmcs/cmcs.webp" 
-                     class="card-img-top" 
-                     alt="Contract Monthly Claim System"
-                     width="534" 
-                     height="252"
+            ['Secure login with role-based permissions','Lecturer claim submissions with document support','Coordinator and academic manager approval workflows','Real-time status tracking and notifications','Comprehensive reports with export and print options','Clean, responsive, and efficient interface'])">
+              <div class="project-logo">
+                <img src="./assets/projects/cmcs/logo.png" 
+                     alt="Contract Monthly Claim System Logo"
                      loading="lazy">
-              </picture>
-              <div class="card-body">
-                <h3 class="fw-bold">Contract Monthly Claim System</h3>
-                <p class="card-text">Manage and track your claims with faster approvals.</p>
               </div>
+              <h3 class="fw-bold">Contract Monthly Claim System</h3>
+              <p>C#, Visual Studio & SQL Server. Enterprise claim management with role-based access.</p>
             </div>
           </div>
           <!-- Card 6 -->
-          <div class="col-lg-6">
-            <div class="card h-100 border-0 shadow project" onclick="showProjectShowcase('agri-energy', 'Agri-Energy Connect', 
+          <div class="col-lg-4 col-md-6">
+            <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-2" onclick="showProjectShowcase('agri-energy', 'Agri-Energy Connect', 
             'A secure farm-to-market management system developed in C# with Microsoft SQL Server. Agri-Energy Connect bridges the gap between farmers and employees, enabling efficient product management, account creation, and advanced filtering tools.', null,
-            ['Secure login with role-based access','Farmer accounts with product creation and management','Employee portal for farmer and product oversight','Search and filter functionality for streamlined access','Scalable database integration with SQL Server'],
-            './assets/projects/agri-energy/agri-energy.webm', './assets/projects/agri-energy/agri-energy.webp')">
-              <picture>
-                <source srcset="./assets/projects/agri-energy/agri-energy_small.webp 954w, ./assets/projects/agri-energy/agri-energy_medium.webp 1430w, ./assets/projects/agri-energy/agri-energy.webp 1907w" 
-                        sizes="(max-width: 768px) 350px, (max-width: 992px) 450px, 534px" 
-                        type="image/webp">
-                <img src="./assets/projects/agri-energy/agri-energy.webp" 
-                     class="card-img-top" 
-                     alt="Agri-Energy Connect"
-                     width="534" 
-                     height="253"
+            ['Secure login with role-based access','Farmer accounts with product creation and management','Employee portal for farmer and product oversight','Search and filter functionality for streamlined access','Scalable database integration with SQL Server'])">
+              <div class="project-logo">
+                <img src="./assets/projects/agri-energy/logo.webp" 
+                     alt="Agri-Energy Connect Logo"
                      loading="lazy">
-              </picture>
-              <div class="card-body">
-                <h3 class="fw-bold">Agri-Energy Connect</h3>
-                <p class="card-text">Helping farmers and employers manage products securely.</p>
               </div>
+              <h3 class="fw-bold">Agri-Energy Connect</h3>
+              <p>C#, SQL Server & Windows Forms. Farm-to-market management system.</p>
             </div>
           </div>
           <!-- Card 7 -->
-          <div class="col-lg-6">
-            <div class="card h-100 border-0 shadow project" onclick="showProjectShowcase('abc-retail', 'ABC Retail', 'A retail e-commerce web application built in C# with Azure Table storage. ABC Retail provides a fast, secure, and user-friendly outdoor shopping experience with a modern catalog, seamless checkout, and account management.',
-             null, ['E-commerce platform', 'Full product catalog with outdoor retail focus','Azure Table-based product and order management','Secure account login and access','Shopping cart and streamlined checkout process','Fast, responsive, and scalable web experience'], 
-             './assets/projects/abc/abc.webm', './assets/projects/abc/abc-retail.webp')">
-              <picture>
-                <source srcset="./assets/projects/abc/abc-retail_small.webp 940w, ./assets/projects/abc/abc-retail_medium.webp 1410w, ./assets/projects/abc/abc-retail.webp 1880w" 
-                        sizes="(max-width: 768px) 350px, (max-width: 992px) 450px, 534px" 
-                        type="image/webp">
-                <img src="./assets/projects/abc/abc-retail.webp" 
-                     class="card-img-top" 
-                     alt="ABC retail"
-                     width="534" 
-                     height="256"
+          <div class="col-lg-4 col-md-6">
+            <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-3" onclick="showProjectShowcase('abc-retail', 'ABC Retail', 'A retail e-commerce web application built in C# with Azure Table storage. ABC Retail provides a fast, secure, and user-friendly outdoor shopping experience with a modern catalog, seamless checkout, and account management.',
+             null, ['E-commerce platform', 'Full product catalog with outdoor retail focus','Azure Table-based product and order management','Secure account login and access','Shopping cart and streamlined checkout process','Fast, responsive, and scalable web experience'])">
+              <div class="project-logo">
+                <img src="./assets/projects/abc/logo.png" 
+                     alt="ABC Retail Logo"
                      loading="lazy">
-              </picture>
-              <div class="card-body">
-                <h3 class="fw-bold">ABC Retail</h3>
-                <p class="card-text">Your one stop for any outdoor need.</p>
               </div>
+              <h3 class="fw-bold">ABC Retail</h3>
+              <p>C#, Azure Tables & ASP.NET. E-commerce platform for outdoor retail.</p>
+            </div>
+          </div>
+          
+          <!-- Card 8 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-4" onclick="showProjectShowcase('trailguide', 'TrailGuide', 'A comprehensive Android hiking companion app demonstrating modern mobile development practices, authentication systems, and real-world API integration. Built with Kotlin, Jetpack Compose, and MVVM architecture, it provides trail discovery, interactive mapping, offline capabilities, and community features for outdoor enthusiasts.', 
+             'https://github.com/ShawnDuPreez/TrailGuide', ['User Authentication - Google Sign-In, Email/Password, Biometric Login', 'Trail Discovery - Browse and search hiking trails with detailed information', 'Interactive Maps - Google Maps integration with trail routes and visualization', 'Favorites System - Save and manage favorite trails with offline access', 'MVVM Architecture - Clean separation of concerns with Jetpack Compose', 'RESTful API - Custom Node.js backend with Supabase PostgreSQL database', 'CI/CD Pipeline - Automated testing and deployment with GitHub Actions', 'Offline Capabilities - Download trails for adventures without internet'])">
+              <div class="project-logo">
+                <img src="./assets/projects/trailguide/logo.png" 
+                     alt="TrailGuide Logo"
+                     loading="lazy">
+              </div>
+              <h3 class="fw-bold">TrailGuide</h3>
+              <p>Kotlin, Jetpack Compose & Node.js. Comprehensive Android hiking companion app.</p>
+            </div>
+          </div>
+          
+          <!-- Card 9 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-1" onclick="showProjectShowcase('skillsync', 'SkillSync', 'A comprehensive React Native learning tracker app built with Expo, featuring built-in translation capabilities and comprehensive skill management. SkillSync helps users track their skill development progress, log learning sessions, and maintain learning streaks with multi-language support.', 
+             'https://github.com/ST10298302/SkillSync', ['Skill Management - Create, edit, and organize learning goals with categories', 'Progress Tracking - Visual progress bars, percentage display, and streak system', 'Learning Diary - Session logging with time tracking and entry history', 'Translation System - Built-in Google Translate integration with multi-language support', 'Theme System - Light/dark mode with auto-detection and persistent settings', 'Dashboard & Analytics - Home statistics, progress charts, and time analytics', 'Cross-Platform - Works on iOS, Android, and Web with React Native', 'Comprehensive Testing - 33 tests across 7 test suites with full CI/CD pipeline'])">
+              <div class="project-logo">
+                <img src="./assets/projects/skillsync/logo.png" 
+                     alt="SkillSync Logo"
+                     loading="lazy">
+              </div>
+              <h3 class="fw-bold">SkillSync</h3>
+              <p>React Native, Expo & Supabase. Comprehensive learning tracker with translation.</p>
             </div>
           </div>
           
@@ -574,32 +637,24 @@
             <div class="modal-content project-showcase-content align-items-center text-color" onclick="event.stopPropagation()">
               <span class="close-btn" onclick="event.stopPropagation(); closeProjectShowcase(event)"></span>
               
-              <!-- Left: Video -->
-              <div class="video-container">
-                <video id="projectVideo" autoplay muted loop playsinline>
-                  <source id="videoSource" src="" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-
-              <!-- Right: Details -->
+              <!-- Project Details -->
               <div class="project-details">
                 <div class="project-header mb-3">
                   <h2 id="showcaseTitle" class="fw-bold mb-2"></h2>
                   <p id="showcaseDescription" class="lead mb-0"></p>
                 </div>
 
+                <!-- Actions -->
+                <div class="project-actions d-flex flex-column flex-sm-row gap-3 mb-3">
+                  <button id="visitProjectBtn" class="btn fun-btn px-4" style="display: none;">
+                    <i class="fas fa-external-link-alt me-2"></i> Visit Project
+                  </button>
+                </div>
+
                 <!-- Features -->
                 <div class="project-features mb-3">
                   <h5 class="fw-bold mb-2">Key Features</h5>
                   <div id="featuresList" class="features-grid"></div>
-                </div>
-
-                <!-- Actions -->
-                <div class="project-actions d-flex flex-column flex-sm-row gap-3">
-                  <button id="visitProjectBtn" class="btn fun-btn px-4" style="display: none;">
-                    <i class="fas fa-external-link-alt me-2"></i> Visit Project
-                  </button>
                 </div>
               </div>
             </div>                      
@@ -626,11 +681,15 @@
       </section>
 
     <!-- About me -->
-    <section id="about" class="about-section py-5" aria-labelledby="about-heading">
+    <section id="about" class="about-section" aria-labelledby="about-heading">
       <div class="container">
-        <div class="row align-items-center">
+        <div class="about-content-wrapper">
+          <div class="grid-effect">
+            <!-- Generate 100 tiles using JavaScript -->
+          </div>
+          <div class="row align-items-center" style="margin-top: 80px !important;">
           <!-- Profile Image -->
-          <div class="col-md-5 text-center mb-4 mb-md-0">
+          <div class="col-md-5 text-center mb- mb-md-0 scroll-animate-left">
             <h1 id="about-heading" class="display-4 fw-bold text-center mb-2 text-color">About Me</h1>
             <picture>
               <source srcset="./assets/images/hike_small.webp 1472w, ./assets/images/hike_medium.webp 2208w, ./assets/images/hike.webp 2944w" 
@@ -645,8 +704,8 @@
             </picture>
           </div>
           <!-- About Content -->
-          <div class="col-md-7">
-            <div class="p-4 rounded-4 shadow-sm" style="background-color: var(--background-color); color: var(--text-color);">
+          <div class="col-md-7 scroll-animate-right p-4">
+            <div class="p-4 rounded-4 shadow-sm padding-top" style="background-color: var(--background-color); color: var(--text-color);">
               <h3 class="fw-bold mb-3">Hi, I'm a computer science student</h3>
               <p class="mb-3">
                 I’m a <strong>Final Year Student</strong> motivated with a solid foundation in application development, cloud computing, and database management.
@@ -691,6 +750,7 @@
               </div>
             </div>
           </div>
+          </div>
         </div>
       </div>
     </section>
@@ -700,7 +760,7 @@
       <div class="container">
         <div class="row align-items-center g-5">
           <!-- Left -->
-          <div class="col-lg-6">
+          <div class="col-lg-6 scroll-animate-left">
             <div class="p-4 rounded-4" style="background-color: var(--secondary-color);">
               <form action="https://formspree.io/f/mldlzydw" method="POST">
                 <div class="mb-3">
@@ -725,7 +785,7 @@
             </div>
           </div>
           <!-- Right -->
-          <div class="col-lg-6 text-lg-start text-center">
+          <div class="col-lg-6 text-lg-start text-center scroll-animate-right">
             <h1 class="display-4 fw-bold  mb-3">Let’s Connect</h1>
             <p class="lead mb-4">
               Have a question, an idea, or a project in mind?  
@@ -795,6 +855,56 @@
           navbar.classList.remove('scrolled');
         }
       });
+
+      // Scroll Animations
+      function initScrollAnimations() {
+        const animatedElements = document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale');
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate-in');
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        });
+
+        animatedElements.forEach(el => {
+          observer.observe(el);
+        });
+      }
+
+        // Initialize scroll animations when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initScrollAnimations);
+
+        // Initialize grid dots for about section
+        function initGridDots() {
+          const gridContainer = document.querySelector('.grid-effect');
+          if (!gridContainer) return;
+
+          // Create 100 individual tile elements
+          for (let i = 0; i < 100; i++) {
+            const tile = document.createElement('div');
+            tile.className = 'grid-effect-tile';
+            gridContainer.appendChild(tile);
+          }
+        }
+
+        // Initialize grid dots when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initGridDots);
+
+      // Progress Bar
+      function updateProgressBar() {
+        const progressBar = document.getElementById('progressBar');
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        progressBar.style.width = scrollPercent + '%';
+      }
+
+      window.addEventListener('scroll', updateProgressBar);
       // Button toggle
       const themeToggle = document.getElementById('themeToggle');
       const themeIcon = document.getElementById('themeIcon');
@@ -849,9 +959,6 @@
           source.srcset = "./assets/images/derik.color_small.webp 940w, ./assets/images/derik.color_medium.webp 1410w, ./assets/images/derik.color.webp 1880w";
           picIcon.src = "./assets/images/derik.color.webp";
         }
-        
-        // Force browser to use the new image
-        picIcon.load();
       });
 
       // Close navbar dropdown when clicking on nav links
@@ -889,55 +996,16 @@
         }
       }
 
-      function showProjectShowcase(id, title, description, projectUrl, features, videoSrc, imageSrc) {
+      function showProjectShowcase(id, title, description, projectUrl, features) {
         const modal = document.getElementById('projectShowcaseModal');
         const showcaseTitle = document.getElementById('showcaseTitle');
         const showcaseDescription = document.getElementById('showcaseDescription');
         const featuresList = document.getElementById('featuresList');
         const visitProjectBtn = document.getElementById('visitProjectBtn');
-        const projectVideo = document.getElementById('projectVideo');
-        const videoSourceEl = document.getElementById('videoSource');
 
         modal.style.display = 'block';
         showcaseTitle.textContent = title;
         showcaseDescription.textContent = description;
-
-        // Add/remove class for budget piggy video styling
-        const videoContainer = projectVideo.closest('.video-container');
-        if (id === 'budget-piggy') {
-          projectVideo.classList.add('budget-piggy-video');
-          videoContainer.classList.add('budget-piggy-container');
-        } else {
-          projectVideo.classList.remove('budget-piggy-video');
-          videoContainer.classList.remove('budget-piggy-container');
-        }
-
-        // Reset video/image
-        projectVideo.pause();
-        videoSourceEl.src = "";
-        projectVideo.load();
-        projectVideo.style.display = "none";
-        const fallbackImg = modal.querySelector(".fallback-image");
-        if (fallbackImg) fallbackImg.remove();
-
-        // Show video if available
-        if (videoSrc) {
-          videoSourceEl.src = videoSrc;
-          projectVideo.load();
-          projectVideo.style.display = "block";
-          projectVideo.setAttribute("poster", imageSrc || "");
-          projectVideo.oncanplay = () => {
-            projectVideo.play().catch(err => console.log("Autoplay blocked:", err));
-          };
-        }
-        // Fallback image if no video
-        else if (imageSrc) {
-          const img = document.createElement("img");
-          img.src = imageSrc;
-          img.alt = title + " preview";
-          img.className = "fallback-image";
-          projectVideo.parentElement.appendChild(img);
-        }
 
         // Features
         featuresList.innerHTML = '';
@@ -963,9 +1031,6 @@
       function closeProjectShowcase(event) {
         if (event.target.classList.contains("modal") || event.target.classList.contains("close-btn") || event.target.closest(".close-btn")) {
           document.getElementById('projectShowcaseModal').style.display = 'none';
-
-          const projectVideo = document.getElementById('projectVideo');
-          projectVideo.pause();
         }
       }
 
