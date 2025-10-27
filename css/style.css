@@ -8,7 +8,9 @@
   --secondary-color: #181c24;
   --accent-color: #8ff0f7;
   --background-color: #F0F0F0;
+  --background-color-rgb: 240, 240, 240;
   --text-color: #222831;
+  --card-edges: #181c24;
   --rainbow1: #FF3CAC;  /* Pink / Magenta */
   --rainbow2: #784BA0;  /* Purple */
   --rainbow3: #2B86C5;  /* Blue */
@@ -19,7 +21,13 @@ body.dark-theme {
   --secondary-color: #181c24;
   --accent-color: #90eff4;
   --background-color: #121212;
+  --background-color-rgb: 18, 18, 18;
   --text-color: #E0E0E0;
+  --card-edges: #121212;
+}
+
+body.dark-theme .navbar .nav-link {
+  background-color: rgba(18, 18, 18, 0.9);
 }
 
 html, body {
@@ -108,37 +116,112 @@ body {
   color: var(--text-color);
 }
 
-/* Navbar */
+/* Navbar - Clean Modern Design */
+.navbar {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: transparent !important;
+  box-shadow: none;
+}
+
+.navbar-nav-bg {
+  background-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  transition: all 0.3s ease;
+  max-width: fit-content;
+  margin: 0 auto;
+  border-radius: 50px !important;
+  padding: 0.5rem 1rem !important;
+  box-shadow: none;
+}
+
+.navbar.scrolled .navbar-nav-bg {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
 .navbar .nav-link {
   position: relative;
   display: inline-block;
   color: var(--text-color);
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin: 0 1rem;
-  transition: color 0.4s ease;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  padding: 0.5rem 1.2rem !important;
+  margin: 0 0.3rem;
+  transition: all 0.3s ease;
   z-index: 999;
-}
-.underline--magical {
-  background-image: linear-gradient(120deg, var(--primary-color) 0%, var(--primary-color) 100%);
-  background-repeat: no-repeat;
-  background-size: 100% 0.3em;
-  background-position: 0 89%;
-  transition: background-size 0.3s ease-in-out, background-position 0.3s ease-in-out !important;
-}
-.navbar .nav-link.underline--magical:hover {
-  background-size: 100% 1.8em;
-}
-.navbar-nav-bg {
-  background-color: transparent;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  max-width: fit-content;
-  margin: 0 auto;
-  border-radius: 1rem !important;
-}
-.navbar.scrolled .navbar-nav-bg {
-  background-color: var(--background-color);
+  border-radius: 25px;
+  background-color: rgba(var(--background-color-rgb), 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 172, 181, 0.4);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .nav-link:hover {
+  color: var(--primary-color);
+  background-color: rgba(var(--background-color-rgb), 1);
+  border-color: rgba(0, 173, 181, 0.6);
+  box-shadow: 0 4px 12px rgba(0, 173, 181, 0.2);
+  transform: translateY(-2px);
+}
+
+.navbar .nav-link.active {
+  color: var(--primary-color);
+}
+
+/* Clean underline effect */
+.underline--magical {
+  position: relative;
+}
+
+.underline--magical::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.navbar .nav-link.underline--magical:hover::after {
+  width: 80%;
+}
+
+/* Mobile toggler */
+.navbar-toggler {
+  border: none;
+  padding: 0.5rem;
+  background: rgba(0, 173, 181, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler:hover {
+  background: rgba(0, 173, 181, 0.2);
+  transform: scale(1.05);
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(0, 173, 181, 0.3);
+  outline: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 173, 181, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 /* First section */
@@ -384,7 +467,7 @@ body {
 /* Focus section - enhanced styling */
 #focus {
   padding-top: 2rem !important;
-  padding-bottom: 2rem !important;
+  padding-bottom: 4rem !important;
   position: relative;
   overflow: hidden;
   z-index: 2;
@@ -440,11 +523,26 @@ body {
 .focus-content-wrapper {
   position: relative;
   overflow: visible;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
 }
 
 #custom-cards {
   padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
+}
+
+#custom-cards .row {
+  overflow: visible;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+#custom-cards .col-12,
+#custom-cards .col-md-4,
+#custom-cards .col-lg-4 {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 /* Custom card styling improvements */
@@ -454,19 +552,19 @@ body {
 }
 
 .color-focus1 .text-shadow-1 {
-  color: var(--text-color);
+  color: black;
 }
 
 .color-focus1 .text-shadow-1 h3 {
-  color: var(--text-color);
+  color: black;
 }
 
 .color-focus1 .text-shadow-1 p {
-  color: var(--text-color);
+  color: black;
 }
 
 .color-focus1 .text-shadow-1 small {
-  color: var(--text-color);
+  color: black;
 }
 
 .color-focus2 .text-shadow-1 {
@@ -569,6 +667,7 @@ body {
     radial-gradient(circle at 30% 80%, var(--rainbow1) 1px, transparent 1px),
     radial-gradient(circle at 70% 10%, var(--rainbow3) 1px, transparent 1px);
   background-size: 150px 150px, 180px 180px, 200px 200px, 160px 160px, 120px 120px, 140px 140px, 100px 100px, 130px 130px;
+  animation: floatParticles 10s linear infinite;
   opacity: 0.6;
   z-index: 0;
 }
@@ -617,7 +716,7 @@ body {
     radial-gradient(circle at 30% 80%, var(--rainbow1) 1px, transparent 1px),
     radial-gradient(circle at 70% 10%, var(--rainbow3) 1px, transparent 1px);
   background-size: 150px 150px, 180px 180px, 200px 200px, 160px 160px, 120px 120px, 140px 140px, 100px 100px, 130px 130px;
-  animation: floatParticles 20s linear infinite;
+  animation: floatParticles 10s linear infinite;
   opacity: 0.55;
   z-index: 0;
 }
@@ -666,7 +765,7 @@ body {
     radial-gradient(circle at 30% 80%, var(--rainbow1) 1px, transparent 1px),
     radial-gradient(circle at 70% 10%, var(--rainbow3) 1px, transparent 1px);
   background-size: 150px 150px, 180px 180px, 200px 200px, 160px 160px, 120px 120px, 140px 140px, 100px 100px, 130px 130px;
-  animation: floatParticles 20s linear infinite;
+  animation: floatParticles 10s linear infinite;
   opacity: 0.4;
   z-index: 0;
 }
@@ -722,7 +821,7 @@ body {
     radial-gradient(circle at 30% 80%, var(--rainbow1) 1px, transparent 1px),
     radial-gradient(circle at 70% 10%, var(--rainbow3) 1px, transparent 1px);
   background-size: 150px 150px, 180px 180px, 200px 200px, 160px 160px, 120px 120px, 140px 140px, 100px 100px, 130px 130px;
-  animation: floatParticles 20s linear infinite;
+  animation: floatParticles 10s linear infinite;
   opacity: 0.4;
   z-index: 0;
 }
@@ -730,6 +829,12 @@ body {
 .projects-section .container {
   position: relative;
   z-index: 101;
+}
+
+/* Projects section heading styling */
+#projects-heading {
+  color: #E0E0E0;
+  text-shadow: 0 2px 10px rgba(0, 173, 181, 0.5);
 }
 
 /* Ensure projects row has enough bottom space for hover effects */
@@ -741,11 +846,11 @@ body {
   background: transparent;
   border-radius: 24px !important;
   overflow: hidden;
-  transition: all 0.3s ease;
-  transform: translateY(0);
-  will-change: transform, box-shadow;
-  border: 2px solid white !important;
-  box-shadow: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0) scale(1);
+  will-change: transform, box-shadow, border-color;
+  border: 2px solid rgba(255, 255, 255, 0.8) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   position: relative;
   padding: 2rem;
   display: flex;
@@ -791,20 +896,17 @@ body {
   100% { border-color: var(--primary-color); }
 }
 
-.project:hover {
-  transform: translateY(-8px);
-  box-shadow: none;
+.hover-effect:hover{
   cursor: pointer;
-  animation: borderColorShift 2s linear infinite;
-  border-color: rgba(255, 255, 255, 0.6);
+  border-color: var(--primary-color) !important;
 }
 
 .project:hover .project-logo {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .project:hover .project-logo img {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 /* Card content styling */
@@ -837,12 +939,14 @@ body {
 .modal {
   display: none;
   position: fixed;
-  z-index: 999999;
+  z-index: 9999999;
   width: 100%; 
   height: 100%;
   background-color: rgba(0,0,0,0.6);
   top: 0;
   left: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .modal-content {
   background: var(--background-color);
@@ -861,7 +965,7 @@ body {
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  z-index: 1000000;
+  z-index: 99999999;
   background-color: var(--background-color);
   color: var(--text-color);
   width: 35px;
@@ -879,10 +983,10 @@ body {
 
 /* Project showcase modal close button - positioned in top right of popup */
 .modal .project-showcase-content .close-btn {
-  position: absolute;
+  position: fixed;
   right: 20px;
   top: 20px;
-  z-index: 1000001;
+  z-index: 99999999;
   background-color: var(--primary-color);
   color: white;
   width: 40px;
@@ -891,6 +995,7 @@ body {
   border: 2px solid var(--primary-color);
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 173, 181, 0.3);
+  cursor: pointer;
 }
 
 /* Ensure X is perfectly centered in project popup close button */
@@ -941,10 +1046,11 @@ body {
   position: relative;
   overflow: hidden;
   min-height: auto;
-  padding: 2rem 0 4rem 0;
-  z-index: 3;
+  padding: 3rem 0 4rem 0;
+  z-index: 10;
   background: var(--background-color);
 }
+
 
 #about .container {
   position: relative;
@@ -1124,7 +1230,7 @@ body {
     radial-gradient(circle at 30% 80%, var(--rainbow1) 1px, transparent 1px),
     radial-gradient(circle at 70% 10%, var(--rainbow3) 1px, transparent 1px);
   background-size: 150px 150px, 180px 180px, 200px 200px, 160px 160px, 120px 120px, 140px 140px, 100px 100px, 130px 130px;
-  animation: floatParticles 20s linear infinite;
+  animation: floatParticles 10s linear infinite;
   opacity: 0.4;
   z-index: 0;
 }
@@ -1334,6 +1440,30 @@ body {
     max-width: 720px;
   }
   
+  /* Navbar mobile optimizations */
+  .navbar-nav-bg {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0.75rem !important;
+    margin-top: 1rem;
+    width: 90%;
+    max-width: 300px;
+  }
+  
+  .navbar .nav-link {
+    font-size: 1rem;
+    padding: 0.6rem 1rem !important;
+    margin: 0.3rem auto;
+    text-align: center;
+    display: block;
+    width: fit-content;
+  }
+  
+  .navbar-nav {
+    gap: 0.3rem;
+  }
+  
   .profile-section {margin-top: 8rem !important;}
   
   /* Mobile optimizations */
@@ -1397,7 +1527,7 @@ body {
   #about {
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
-    overflow: visible !important;
+    overflow: hidden !important;
   }
   
   #about .container {
@@ -1409,6 +1539,20 @@ body {
   }
   
   .grid-effect {
+    overflow: visible !important;
+  }
+  
+  /* Focus section mobile - keep particles contained but allow card hover effects */
+  #focus {
+    overflow: hidden !important;
+  }
+  
+  .focus-content-wrapper {
+    overflow: visible !important;
+    padding: 0 0.5rem;
+  }
+  
+  #custom-cards .row {
     overflow: visible !important;
   }
 }
@@ -1616,19 +1760,21 @@ body {
 /* Single-column modal layout */
 .project-showcase-content {
   margin: 8% auto !important;
+  margin-bottom: 8% !important;
   display: flex;
   flex-direction: column;
   max-width: min(900px, 90vw) !important;
   width: 90%;
   padding: 0;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   background: rgba(24, 28, 36, 0.95);
   backdrop-filter: blur(20px);
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   border: 2px solid var(--primary-color);
-  z-index: 1000000;
+  z-index: 10000000;
+  min-height: fit-content;
 }
 
 .project-showcase-content::before {
@@ -1639,9 +1785,11 @@ body {
   right: 0;
   height: 9px;
   background: linear-gradient(90deg, var(--rainbow1), var(--rainbow2), var(--rainbow3), var(--rainbow4));
+  border-radius: 20px 20px 0 0;
+  z-index: 2;
 }
 
-/* Colorful background effect for project popup */
+/* Colorful background effect for project popup - backup layer */
 .project-showcase-content::after {
   content: '';
   position: absolute;
@@ -1649,19 +1797,21 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
+  min-height: 100%;
   background: linear-gradient(
     -45deg,
-    rgba(0, 173, 181, 0.1),
-    rgba(255, 60, 172, 0.08),
-    rgba(120, 75, 160, 0.1),
-    rgba(43, 134, 197, 0.08),
-    rgba(0, 255, 185, 0.1),
-    rgba(0, 173, 181, 0.1)
+    rgba(0, 173, 181, 0.05),
+    rgba(255, 60, 172, 0.04),
+    rgba(120, 75, 160, 0.05),
+    rgba(43, 134, 197, 0.04),
+    rgba(0, 255, 185, 0.05),
+    rgba(0, 173, 181, 0.05)
   );
   background-size: 400% 400%;
   animation: gradientShift 12s ease infinite;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
+  border-radius: 20px;
 }
 
 
@@ -1675,6 +1825,18 @@ body {
   padding-top: 40px; /* Extra space for close button */
   position: relative;
   z-index: 1;
+  background: linear-gradient(
+    -45deg,
+    rgba(0, 173, 181, 0.1),
+    rgba(255, 60, 172, 0.08),
+    rgba(120, 75, 160, 0.1),
+    rgba(43, 134, 197, 0.08),
+    rgba(0, 255, 185, 0.1),
+    rgba(0, 173, 181, 0.1)
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+  border-radius: 0 0 18px 18px;
 }
 
 .project-header h2 {
@@ -1839,10 +2001,10 @@ body {
 @media (max-width: 768px) {
   .project-showcase-content {
     margin: 12% auto !important;
+    margin-bottom: 12% !important;
     max-width: min(700px, 95vw) !important;
     width: 95%;
-    max-height: calc(100vh - 15%);
-    overflow-y: auto;
+    overflow: visible;
   }
   
   .project-details {
@@ -1886,9 +2048,10 @@ body {
 @media (max-width: 480px) {
   .project-showcase-content {
     margin: 18% auto !important;
+    margin-bottom: 18% !important;
     max-width: min(600px, 90vw) !important;
     width: 90%;
-    max-height: calc(100vh - 25%);
+    overflow: visible;
   }
   
   .project-details {

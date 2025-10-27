@@ -215,6 +215,9 @@
           --text-color: #E0E0E0;
           --card-edges: #121212;
         }
+        body.dark-theme .navbar .nav-link {
+          background-color: rgba(18, 18, 18, 0.9);
+        }
         body {
           background-color: var(--background-color);
           margin: 0;
@@ -292,16 +295,24 @@
           top: 0;
           width: 100%;
           z-index: 1000;
+          background-color: transparent;
         }
         .navbar .nav-link {
           position: relative;
           display: inline-block;
           color: var(--text-color);
-          font-size: 1.2rem;
-          font-weight: 700;
-          margin: 0 1rem;
-          transition: color 0.4s ease;
+          font-size: 1.1rem;
+          font-weight: 600;
+          padding: 0.5rem 1.2rem;
+          margin: 0 0.3rem;
+          transition: all 0.3s ease;
           z-index: 999;
+          border-radius: 25px;
+          background-color: rgba(240, 240, 240, 0.9);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          border: 1px solid rgba(0, 173, 181, 0.2);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
       </style>
       
@@ -393,6 +404,9 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link underline--magical" href="#about" aria-label="Navigate to about section">Info</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link underline--magical" href="#contact-me" aria-label="Navigate to contact section">Contact Me</a>
               </li>
             </ul>
           </div>
@@ -501,7 +515,7 @@
         <div class="row g-4">
           <!-- Card 1 -->
           <div class="col-lg-4 col-md-6">
-            <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-1" 
+            <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-1 hover-effect" 
                 role="button"
                 tabindex="0"
                 aria-label="View CropIntelek project details - Agricultural research company website"
@@ -519,7 +533,7 @@
           </div>
           <!-- Card 2 -->
           <div class="col-lg-4 col-md-6">
-            <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-2" onclick="showProjectShowcase('kanban', 'Kanban Task Manager', 
+            <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-2 hover-effect" onclick="showProjectShowcase('kanban', 'Kanban Task Manager', 
             'A modern Kanban-based task management system built with pure HTML, JavaScript, and Firestore. Designed for an accounting company, it offers real-time collaboration, statistical insights, and an intuitive, vibrant UI for seamless workflow management.',
              'https://thedevtrekker.github.io/Kanban-Task-Manager/',
             ['Task creation with statuses and due dates', 'Member management', 'Role assignments', 'User authentication', 'Real-time updates powered by Firestore', 'Statistical insights with charts'])">
@@ -534,7 +548,7 @@
           </div>
           <!-- Card 3 -->
           <div class="col-lg-4 col-md-6">
-            <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-3" onclick="showProjectShowcase('budget-piggy', 'Budget Piggy', 'A mobile expense tracking application developed in Android Studio using Kotlin and Firebase. Budget Piggy provides secure authentication, intuitive money management, and engaging visuals, making financial planning simple and effective.', 
+            <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-3 hover-effect" onclick="showProjectShowcase('budget-piggy', 'Budget Piggy', 'A mobile expense tracking application developed in Android Studio using Kotlin and Firebase. Budget Piggy provides secure authentication, intuitive money management, and engaging visuals, making financial planning simple and effective.', 
               null,['Secure login and account management','Log expenses and track budgets in real time','Transfer funds between accounts','Upload and manage receipts digitally','Statistical reports and visual dashboards','Push notifications for reminders and updates'])">
               <div class="project-logo">
                 <img src="./assets/projects/budget-piggy/logo.png" 
@@ -547,7 +561,7 @@
           </div>
           <!-- Card 4 -->
           <div class="col-lg-4 col-md-6">
-          <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-4" 
+          <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-4 hover-effect" 
               onclick="showProjectShowcase(
                 'client-manager','Client Manager','A business registry dashboard built with HTML, CSS, and JavaScript. The Client Manager allows users to manage companies, individuals, and directors in a clean, interactive interface. This demo version uses LocalStorage for persistence, making it ideal for portfolio showcasing and quick deployments without a backend.',
                 'https://thedevtrekker.github.io/ClientManager/',['Add, edit, and remove companies and individuals','Link directors to multiple companies','Store tax numbers, addresses, and contact details','Search and filter across records','Real-time updates powered by Firestore','Scalable for big companies, businesses, and individuals'])">
@@ -563,7 +577,7 @@
 
           <!-- Card 5 -->
           <div class="col-lg-4 col-md-6">
-            <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-1" onclick="showProjectShowcase('cmcs', 'Contract Monthly Claim System', 
+            <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-1 hover-effect" onclick="showProjectShowcase('cmcs', 'Contract Monthly Claim System', 
             'An enterprise-grade claim management solution built with C# on Visual Studio and Microsoft SQL Server. CMCS streamlines the academic claims process with role-based access, multi-level approvals, and fast reporting for lecturers, coordinators, and managers.', 'https://contract-monthly-claim-system.onrender.com',
             ['Secure login with role-based permissions','Lecturer claim submissions with document support','Coordinator and academic manager approval workflows','Real-time status tracking and notifications','Comprehensive reports with export and print options','Clean, responsive, and efficient interface'])">
               <div class="project-logo">
@@ -577,7 +591,7 @@
           </div>
           <!-- Card 6 -->
           <div class="col-lg-4 col-md-6">
-            <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-2" onclick="showProjectShowcase('agri-energy', 'Agri-Energy Connect', 
+            <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-2 hover-effect" onclick="showProjectShowcase('agri-energy', 'Agri-Energy Connect', 
             'A secure farm-to-market management system developed in C# with Microsoft SQL Server. Agri-Energy Connect bridges the gap between farmers and employees, enabling efficient product management, account creation, and advanced filtering tools.', null,
             ['Secure login with role-based access','Farmer accounts with product creation and management','Employee portal for farmer and product oversight','Search and filter functionality for streamlined access','Scalable database integration with SQL Server'])">
               <div class="project-logo">
@@ -591,7 +605,7 @@
           </div>
           <!-- Card 7 -->
           <div class="col-lg-4 col-md-6">
-            <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-3" onclick="showProjectShowcase('abc-retail', 'ABC Retail', 'A retail e-commerce web application built in C# with Azure Table storage. ABC Retail provides a fast, secure, and user-friendly outdoor shopping experience with a modern catalog, seamless checkout, and account management.',
+            <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-3 hover-effect" onclick="showProjectShowcase('abc-retail', 'ABC Retail', 'A retail e-commerce web application built in C# with Azure Table storage. ABC Retail provides a fast, secure, and user-friendly outdoor shopping experience with a modern catalog, seamless checkout, and account management.',
              null, ['E-commerce platform', 'Full product catalog with outdoor retail focus','Azure Table-based product and order management','Secure account login and access','Shopping cart and streamlined checkout process','Fast, responsive, and scalable web experience'])">
               <div class="project-logo">
                 <img src="./assets/projects/abc/logo.png" 
@@ -605,7 +619,7 @@
           
           <!-- Card 8 -->
           <div class="col-lg-4 col-md-6">
-            <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-4" onclick="showProjectShowcase('trailguide', 'TrailGuide', 'A comprehensive Android hiking companion app demonstrating modern mobile development practices, authentication systems, and real-world API integration. Built with Kotlin, Jetpack Compose, and MVVM architecture, it provides trail discovery, interactive mapping, offline capabilities, and community features for outdoor enthusiasts.', 
+            <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-4 hover-effect" onclick="showProjectShowcase('trailguide', 'TrailGuide', 'A comprehensive Android hiking companion app demonstrating modern mobile development practices, authentication systems, and real-world API integration. Built with Kotlin, Jetpack Compose, and MVVM architecture, it provides trail discovery, interactive mapping, offline capabilities, and community features for outdoor enthusiasts.', 
              'https://github.com/ShawnDuPreez/TrailGuide', ['User Authentication - Google Sign-In, Email/Password, Biometric Login', 'Trail Discovery - Browse and search hiking trails with detailed information', 'Interactive Maps - Google Maps integration with trail routes and visualization', 'Favorites System - Save and manage favorite trails with offline access', 'MVVM Architecture - Clean separation of concerns with Jetpack Compose', 'RESTful API - Custom Node.js backend with Supabase PostgreSQL database', 'CI/CD Pipeline - Automated testing and deployment with GitHub Actions', 'Offline Capabilities - Download trails for adventures without internet'])">
               <div class="project-logo">
                 <img src="./assets/projects/trailguide/logo.png" 
@@ -619,7 +633,7 @@
           
           <!-- Card 9 -->
           <div class="col-lg-4 col-md-6">
-            <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-1" onclick="showProjectShowcase('skillsync', 'SkillSync', 'A comprehensive React Native learning tracker app built with Expo, featuring built-in translation capabilities and comprehensive skill management. SkillSync helps users track their skill development progress, log learning sessions, and maintain learning streaks with multi-language support.', 
+            <div class="card h-100 border-0 shadow project scroll-animate-scale scroll-animate-delay-1 hover-effect" onclick="showProjectShowcase('skillsync', 'SkillSync', 'A comprehensive React Native learning tracker app built with Expo, featuring built-in translation capabilities and comprehensive skill management. SkillSync helps users track their skill development progress, log learning sessions, and maintain learning streaks with multi-language support.', 
              'https://github.com/ST10298302/SkillSync', ['Skill Management - Create, edit, and organize learning goals with categories', 'Progress Tracking - Visual progress bars, percentage display, and streak system', 'Learning Diary - Session logging with time tracking and entry history', 'Translation System - Built-in Google Translate integration with multi-language support', 'Theme System - Light/dark mode with auto-detection and persistent settings', 'Dashboard & Analytics - Home statistics, progress charts, and time analytics', 'Cross-Platform - Works on iOS, Android, and Web with React Native', 'Comprehensive Testing - 33 tests across 7 test suites with full CI/CD pipeline'])">
               <div class="project-logo">
                 <img src="./assets/projects/skillsync/logo.png" 
